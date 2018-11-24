@@ -11,15 +11,15 @@ class PollContainer extends Component {
     return (
       <div className={cnPollContainer()}>
         <div className={cnPollContainer("controls")}>
-          <PollControls setup={[
-              {type: "select", text: "Имя",options:['Один','Два']}, 
-              {type:"input", text: "Поле"}, 
-              {type:"checkbox", text:"Чекбокс"}]}/>
+          <PollControls setup={this.props.setup}/>
         </div>
         <h1 className={cnPollContainer("header")}>{this.props.header}</h1>
         <div className={cnPollContainer("container")}>
-          <PollElement className={cnPollContainer("option")} answer="Да" />
-          <PollElement className={cnPollContainer("option")} answer="Нет" />
+        {
+          this.props.answers.map((option, index) => 
+            <PollElement key={index} className={cnPollContainer("option")} answer={option.answer} />
+          )
+        }
         </div>
       </div>
     );
