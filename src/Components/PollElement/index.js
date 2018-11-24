@@ -6,22 +6,17 @@ import { cn } from '@bem-react/classname';
 const cnPollElement = cn("option");
 
 class PollElement extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      clicked: false
-    }
-  }
-
   renderCmpByType(options) {
     let component;
     switch(options.type) {
       case "image": 
-        component = <Image 
-          cls={cnPollElement("image") + ' ' + (this.state.clicked ? cnPollElement('image', {clicked: true}) : '')} 
+        component = <div>
+          <Image 
+          cls={cnPollElement("image")} 
           url={options.url}
-          onClick={ () => this.setState(() => ({ clicked: !this.state.clicked }))} />
+          onClick={() => this.props.showResult()} />
+          <Button theme="action" size="l" view="default" tone="default" text={options.answer}/>
+        </div>
         break;
     }
     return component;

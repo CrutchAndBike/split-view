@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
 import './PollContainer.css';
-import PollElement from '../PollElement';
+import PollWrapper from '../PollElement/PollWrapper';
 import PollControls from '../PollControls';
 import { cn } from '@bem-react/classname';
 
-const cnPollContainer = cn("polls");
+const cnPollContainer = cn('polls');
 
 class PollContainer extends Component {
   render() {
-    return (
-      <div className={cnPollContainer()}>
+    console.log(this.props);
+    const { isFinished, setup, header } = this.props;
+    return <div>
+      {!isFinished && <div className={cnPollContainer()}>
         <div className={cnPollContainer("controls")}>
-          <PollControls setup={this.props.setup}/>
+          <PollControls setup={setup}/>
         </div>
-        <h1 className={cnPollContainer("header")}>{this.props.header}</h1>
+        <h1 className={cnPollContainer("header")}>{header}</h1>
         <div className={cnPollContainer("container")}>
         {
           this.props.answers.map((option, index) => 
-            <PollElement key={index} className={cnPollContainer("option")} options={option} />
+            <PollWrapper key={index} className={cnPollContainer("option")} options={option} />
           )
         }
         </div>
-      </div>
-    );
+      </div>}
+      {isFinished && <span>Finished</span>}
+    </div>
   }
 }
 
