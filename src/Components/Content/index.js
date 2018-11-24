@@ -12,8 +12,8 @@ class Content extends Component {
         <PollContainer 
           header="Заголовок"
           answers={[
-            {answer: "Вариант 1"},
-            {answer: "Вариант 2"}
+            {type: "image", url: "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&h=427", answer: "Кот"},
+            {type: "image", url: "https://www.ampravda.ru/files/articles-2/80488/2mm40ud6mvum-640.jpg", answer: "Пёс"}
           ]} 
           setup={[
             {type: "select", text: "Имя",options:['Один','Два']}, 

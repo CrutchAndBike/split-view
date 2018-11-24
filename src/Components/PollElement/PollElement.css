@@ -1,8 +1,13 @@
-.navigation {
-  display: flex;
-  margin-left: 40px;
+.option-image {
+  width: 100%;
+  border: 1px #cccccc;
 }
 
-.navigation-link {
-  padding-right: 20px;
+.option-image:hover {
+  opacity: .7;
+  cursor: pointer;
+}
+
+.option-image_clicked {
+  box-shadow: 0px 0px 10px green;
 }

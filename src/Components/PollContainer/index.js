@@ -17,7 +17,7 @@ class PollContainer extends Component {
         <div className={cnPollContainer("container")}>
         {
           this.props.answers.map((option, index) => 
-            <PollElement key={index} className={cnPollContainer("option")} answer={option.answer} />
+            <PollElement key={index} className={cnPollContainer("option")} options={option} />
           )
         }
         </div>
