@@ -5,7 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import splitViewStore from './reducers/splitView';
 
 const persistSplitViewConfig = {
-    key: 'hashtag',
+    key: 'splitVew',
     storage
 };
 

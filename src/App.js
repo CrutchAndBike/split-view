@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Main from './Components/Main';
+import MainComponent from './components/main/MainComponent';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -17,7 +17,7 @@ class App extends Component {
             <div className={cnApp()}>
                 <Provider store={store}>
                     <PersistGate persistor={persistor}>
-                        <Main />
+                        <MainComponent />
                     </PersistGate>
                 </Provider>
             </div>
