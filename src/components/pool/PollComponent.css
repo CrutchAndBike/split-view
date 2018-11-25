@@ -1,13 +1,13 @@
 .option-image {
-  width: 100%;
-  border: 1px #cccccc;
+    width: 100%;
+    border: 1px #cccccc;
 }
 
 .option-image:hover {
-  opacity: .7;
-  cursor: pointer;
+    opacity: .7;
+    cursor: pointer;
 }
 
 .option-image_clicked {
-  box-shadow: 0px 0px 10px green;
+    box-shadow: 0px 0px 10px green;
 }
