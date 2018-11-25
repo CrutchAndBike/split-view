@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MainComponent from './components/main/MainComponent';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import createApplicationStore from './store/createApplicationStore';
 import './App.css';
@@ -17,7 +18,9 @@ class App extends Component {
             <div className={cnApp()}>
                 <Provider store={store}>
                     <PersistGate persistor={persistor}>
-                        <MainComponent />
+                        <Router>
+                            <MainComponent />
+                        </Router>
                     </PersistGate>
                 </Provider>
             </div>
