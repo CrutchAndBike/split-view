@@ -4,13 +4,13 @@ import storage from 'redux-persist/lib/storage';
 
 import splitViewStore from './reducers/splitView';
 
-const persistHashtagConfig = {
-    key: 'hashtag',
+const persistSplitViewConfig = {
+    key: 'splitVew',
     storage
 };
 
 const createRootReducer = () => combineReducers({
-    splitViewStore: persistReducer(persistHashtagConfig, splitViewStore),
+    splitViewStore: persistReducer(persistSplitViewConfig, splitViewStore),
 });
 
 export default createRootReducer;
