@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Logo, Footer, UserAccount } from 'lego-on-react';
+import { Header, Logo, UserAccount } from 'lego-on-react';
 import { Route, Switch } from 'react-router-dom';
 import NavComponent from '../navigation/NavComponent';
 import ContentComponent from '../content/ContentComponent';
