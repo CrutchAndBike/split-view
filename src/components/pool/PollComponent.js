@@ -19,6 +19,10 @@ class PollComponent extends Component {
                     <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
                 </div>;
                 break;
+            default:
+                component = <div>
+                    <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
+                </div>;
         }
         return component;
     }
