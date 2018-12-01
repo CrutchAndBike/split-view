@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SplitViewComponent.css';
-import PollContainer from '../pool/PollContainer';
-import PollControls from '../pollControls/PollContorols';
+import PollContainer from '../Poll/PollContainer';
+import PollControls from '../PollControls/PollContorols';
 import { cn } from '@bem-react/classname';
 
 const cnPollContainer = cn('polls');
