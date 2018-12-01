@@ -4,7 +4,7 @@ import PageComponent from '../Page/PageComponent';
 import AuthComponent from '../Auth/AuthComponent';
 import './MainComponent.css';
 import { cn } from '@bem-react/classname';
-import tokenCallback from "../tokenCallback/tokenCallback";
+import TokenCallback from "../TokenCallback/TokenCallback";
 
 const cnMain = cn('main');
 
@@ -13,8 +13,9 @@ class Main extends Component {
         return (
             <div className={cnMain()}>
                 <Switch>
-                    <Route exact path='/pool' component={ContentComponent}/>
-                    <Route exact path='/token' component={tokenCallback}/>
+                    <Route exact path='/poll' component={PageComponent}/>
+                    <Route exact path='/auth' component={AuthComponent}/>
+                    <Route exact path='/token' component={TokenCallback}/>
                 </Switch>
             </div>
         );

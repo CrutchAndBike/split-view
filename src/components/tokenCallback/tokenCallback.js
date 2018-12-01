@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
-class tokenCallback extends Component {
+class TokenCallback extends Component {
 
   componentDidMount() {
 
@@ -25,4 +25,4 @@ class tokenCallback extends Component {
 
 }
 
-export default tokenCallback;
+export default TokenCallback;
