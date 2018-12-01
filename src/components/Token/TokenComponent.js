@@ -16,7 +16,8 @@ class TokenCallback extends Component {
     axios.get('http://217.23.138.53:3001/login/yandex', {
       headers: {
         'Authorization': token
-      }
+      },
+      withCredentials: true
     }).then(res => {
         if(res.status === 200) {
           console.log(res);
