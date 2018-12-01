@@ -22,7 +22,7 @@ class Page extends Component {
                         <UserAccount
                             hasTicker={true}
                             hasAccentLetter={true}
-                            name="John Doe" url="https://passport.yandex.ru/passport?mode=passport"
+                            name={this.props.userInfo.name} url="https://passport.yandex.ru/passport?mode=passport"
                             avatarId="20706/84473936-5041676"
                             pic={true} />}
                 >
