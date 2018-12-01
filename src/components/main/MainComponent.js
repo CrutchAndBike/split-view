@@ -5,6 +5,7 @@ import NavComponent from '../navigation/NavComponent';
 import ContentComponent from '../content/ContentComponent';
 import './MainComponent.css';
 import { cn } from '@bem-react/classname';
+import tokenCallback from "../tokenCallback/tokenCallback";
 
 const cnMain = cn('main');
 const links = ['Главная', 'Создать опрос'];
@@ -29,6 +30,7 @@ class Main extends Component {
                 </Header>
                 <Switch>
                     <Route exact path='/pool' component={ContentComponent}/>
+                    <Route exact path='/token' component={tokenCallback}/>
                 </Switch>
             </div>
         );
