@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ContentComponent.css';
-import SplitViewContainer from '../splitView/SplitViewContainer';
+import SplitViewContainer from '../SplitView/SplitViewContainer';
 import { cn } from '@bem-react/classname';
 
 const cnContent = cn('content');
