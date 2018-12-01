@@ -1,0 +1,10 @@
+.polls {
+    display: block;
+    margin: 30px;
+    padding-top: 20px;
+}
+
+.polls-container {
+    display: flex;
+    justify-content: space-evenly;
+}
