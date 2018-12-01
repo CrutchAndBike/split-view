@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PageComponent from '../Page/PageComponent';
+import PageContainer from '../Page/PageContainer';
 import AuthComponent from '../Auth/AuthComponent';
 import './MainComponent.css';
 import { cn } from '@bem-react/classname';
-import TokenCallback from "../TokenCallback/TokenCallback";
+import TokenContainer from '../Token/TokenContainer';
+import PrivateRoute from '../PrivateRoute/PrivateRouteComponent';
 
 const cnMain = cn('main');
 
 class Main extends Component {
     render() {
+        console.log(this.props);
         return (
             <div className={cnMain()}>
                 <Switch>
-                    <Route exact path='/poll' component={PageComponent}/>
+                    <PrivateRoute exact path='/poll' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
                     <Route exact path='/auth' component={AuthComponent}/>
-                    <Route exact path='/token' component={TokenCallback}/>
+                    <Route exact path='/token' component={TokenContainer}/>
                 </Switch>
             </div>
         );

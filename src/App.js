@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import MainComponent from './components/Main/MainComponent';
+import MainContainer from './components/Main/MainContainer';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AuthComponent from './components/Auth/AuthComponent';
+import TokenContainer from './components/Token/TokenContainer';
+import PrivateRoute from './components/PrivateRoute/PrivateRouteComponent';
 
 import createApplicationStore from './store/createApplicationStore';
 import './App.css';
@@ -19,7 +22,10 @@ class App extends Component {
                 <Provider store={store}>
                     <PersistGate persistor={persistor}>
                         <Router>
-                            <MainComponent />
+                            <div>
+                                    <Route path='/auth' component={AuthComponent}/>
+                                    <MainContainer />
+                            </div>
                         </Router>
                     </PersistGate>
                 </Provider>
