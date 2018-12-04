@@ -5,12 +5,12 @@ import storage from 'redux-persist/lib/storage';
 import splitViewStore from './reducers/splitView';
 
 const persistSplitViewConfig = {
-    key: 'splitVew',
-    storage
+	key: 'splitVew',
+	storage
 };
 
 const createRootReducer = () => combineReducers({
-    splitViewStore: persistReducer(persistSplitViewConfig, splitViewStore),
+	splitViewStore: persistReducer(persistSplitViewConfig, splitViewStore),
 });
 
 export default createRootReducer;

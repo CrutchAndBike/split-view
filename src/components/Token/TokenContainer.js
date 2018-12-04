@@ -3,7 +3,7 @@ import TokenComponent from './TokenComponent';
 import { saveUser } from '../../store/actions/splitView';
 
 const mapDispatchToProps = {
-    saveUser
+	saveUser
 };
 
 export default connect(null, mapDispatchToProps)(TokenComponent);
