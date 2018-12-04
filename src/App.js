@@ -16,22 +16,22 @@ const cnApp = cn('App');
 const { store, persistor } = createApplicationStore();
 
 class App extends Component {
-    render() {
-        return (
-            <div className={cnApp()}>
-                <Provider store={store}>
-                    <PersistGate persistor={persistor}>
-                        <Router>
-                            <div>
-                                    <Route path='/auth' component={AuthComponent}/>
-                                    <MainContainer />
-                            </div>
-                        </Router>
-                    </PersistGate>
-                </Provider>
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div className={cnApp()}>
+				<Provider store={store}>
+					<PersistGate persistor={persistor}>
+						<Router>
+							<div>
+								<Route path='/auth' component={AuthComponent}/>
+								<MainContainer />
+							</div>
+						</Router>
+					</PersistGate>
+				</Provider>
+			</div>
+		);
+	}
 }
 
 export default App;

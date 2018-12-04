@@ -10,30 +10,30 @@ const cnPage = cn('page');
 const links = ['Главная', 'Создать опрос'];
 
 class Page extends Component {
-    render() {
-        return (
-            <div className={cnPage()}>
-                <Header
-                    fixed="yes"
-                    tableau="yes"
-                    logo={<Logo cls={cnPage('logo')} name="ru-84x36"/>}
-                    left={<NavComponent links={links}/>}
-                    right={
-                        <UserAccount
-                            hasTicker={true}
-                            hasAccentLetter={true}
-                            name={this.props.userInfo.name} url="https://passport.yandex.ru/passport?mode=passport"
-                            avatarId="20706/84473936-5041676"
-                            pic={true} />}
-                >
-                </Header>
-                <Switch>
-                    <Route exact path='/poll' component={ContentComponent}/>
-                    {/* <Route exact path='/create' component={CreateComponent}/> */}
-                </Switch>
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div className={cnPage()}>
+				<Header
+					fixed="yes"
+					tableau="yes"
+					logo={<Logo cls={cnPage('logo')} name="ru-84x36"/>}
+					left={<NavComponent links={links}/>}
+					right={
+						<UserAccount
+							hasTicker={true}
+							hasAccentLetter={true}
+							name={this.props.userInfo.name} url="https://passport.yandex.ru/passport?mode=passport"
+							avatarId="20706/84473936-5041676"
+							pic={true} />}
+				>
+				</Header>
+				<Switch>
+					<Route exact path='/poll' component={ContentComponent}/>
+					{/* <Route exact path='/create' component={CreateComponent}/> */}
+				</Switch>
+			</div>
+		);
+	}
 }
 
 export default Page;

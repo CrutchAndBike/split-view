@@ -3,7 +3,7 @@ import PollComponent from './PollComponent';
 import { showResult } from '../../store/actions/splitView';
 
 const mapDispatchToProps = {
-    showResult
+	showResult
 };
 
 export default connect(null, mapDispatchToProps)(PollComponent);
