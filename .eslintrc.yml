@@ -1,0 +1,36 @@
+env:
+  browser: true
+  node: true
+  commonjs: true
+  es6: true
+extends: 
+  - 'eslint:recommended'
+  - 'plugin:react/recommended'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 2018
+  sourceType: module
+plugins:
+  - react
+rules:
+  no-console:
+    - 1
+  indent: [ "error", "tab", {"SwitchCase": 1}]
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
+  react/prop-types:
+    - 0
+  react/jsx-uses-react:
+    - 1
+settings:
+  react:
+    version: 
+      - "16.0" 
