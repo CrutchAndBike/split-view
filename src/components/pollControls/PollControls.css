@@ -1,9 +1,0 @@
-.controls {
-    display: flex;
-    align-items: center;
-}
-
-.controls-item {
-    max-width: 200px;
-    padding: 0 20px;
-}
