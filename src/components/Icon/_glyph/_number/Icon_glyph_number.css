@@ -1,0 +1,4 @@
+.icon_glyph_number {
+    background-image: url('./number.svg');
+    background-size: contain;
+}

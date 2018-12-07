@@ -1,0 +1,24 @@
+import React, { Component } from 'react';
+
+import './Toolbar.css';
+
+import { cn } from '@bem-react/classname';
+import ToolbarElem from './Toolbar-Elem/Toolbar-Elem';
+
+const cnToolbar = cn('Toolbar');
+
+class Toolbar extends Component {
+	render() {
+		return (
+			<ul className={cnToolbar()}>
+				<ToolbarElem icon="short" text="Короткий текст" />
+				<ToolbarElem icon="long" text="Длинный текст" />
+				<ToolbarElem icon="radio" text="Один вариант" />
+				<ToolbarElem icon="check" text="Несколько вариантов" />
+				<ToolbarElem icon="number" text="Число" />
+			</ul>
+		);
+	}
+}
+
+export default Toolbar;
