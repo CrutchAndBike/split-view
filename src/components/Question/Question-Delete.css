@@ -1,0 +1,26 @@
+.Question-Delete {
+	position: absolute;
+	visibility: hidden;
+	
+	top: 30px;
+	right: 30px;
+
+	opacity: 0.4;
+}
+
+.Question-Delete .icon {
+	width: 32px;
+	height: 32px;
+
+	background-size: auto 16px;
+}
+
+.Question:hover .Question-Delete {
+	visibility: visible;
+}
+
+
+.Question-Delete:hover {
+	opacity: 0.8;
+}
+

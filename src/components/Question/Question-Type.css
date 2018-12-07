@@ -1,0 +1,13 @@
+.Question-Type {
+    position: relative;
+
+    top: 20px;
+
+    font-size: 12px;
+
+    opacity: 0.7;
+}
+
+.Question-Type .icon {
+    margin-right: 10px; 
+}

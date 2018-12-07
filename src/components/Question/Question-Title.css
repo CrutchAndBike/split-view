@@ -1,0 +1,10 @@
+.Question-Title {
+    position: relative;
+
+    top: 20px;
+
+    margin-bottom: 10px;
+    
+    font-size: 18px;
+    font-weight: bold;
+}

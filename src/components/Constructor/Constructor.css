@@ -1,0 +1,10 @@
+.Constructor {
+	display: flex;
+	align-items: flex-start;
+	
+	margin: 25px;
+}
+
+.Constructor-Toolbar {
+	margin-right: 50px;
+}

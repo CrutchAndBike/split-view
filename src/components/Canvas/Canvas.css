@@ -1,0 +1,26 @@
+.Canvas {
+	background-color:rgba(0,0,0,0.02);
+
+	width: 700px;
+
+	padding-bottom: 90px;
+
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+	border-radius: 0 0 4px 4px;
+	border-top: 4px solid #c7c7c7;
+}
+
+.Canvas-Head {
+	background-color: #fff;
+
+	height: 45px;
+}
+
+.Canvas-Title {
+	line-height: 45px;
+
+	margin-left: 30px;
+	color: rgba(0,0,0,0.5);
+	font-size: 13px;
+	font-weight: bold;
+}
