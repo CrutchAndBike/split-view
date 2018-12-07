@@ -7,6 +7,8 @@ import { cn } from '@bem-react/classname';
 import TokenContainer from '../Token/TokenContainer';
 import PrivateRoute from '../PrivateRoute/PrivateRouteComponent';
 
+import EditPage from '../Editor/Page';
+
 const cnMain = cn('main');
 
 class Main extends Component {
@@ -20,7 +22,7 @@ class Main extends Component {
 					<Route exact path='/token' component={TokenContainer}/>
 
 					{/* Проверка шаблона редактора элемента */}
-                    
+					<Route exact path='/edit' component={EditPage}/>
 				</Switch>
 			</div>
 		);
