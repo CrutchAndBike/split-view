@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import './PollList.css';
+import { cn } from '@bem-react/classname';
+
+const cnPollList = cn('PollList');
 
 class PollListComponent extends Component {
 
@@ -20,7 +24,7 @@ class PollListComponent extends Component {
 
 	render() {
 		return (
-			<div>List</div>
+			<div className={cnPollList()}>List</div>
 		);
 	}
 }
