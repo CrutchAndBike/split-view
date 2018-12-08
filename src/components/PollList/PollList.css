@@ -25,14 +25,14 @@
 }
 
 .PollList-List-Header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     min-height: 46px;
     height: 46px;
 }
 
 .PollList-List-Row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
     font-size: 15px;
     min-height: 63px;
