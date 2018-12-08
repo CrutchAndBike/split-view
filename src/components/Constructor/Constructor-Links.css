@@ -1,0 +1,36 @@
+.Constructor-Links {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 40px 0;
+
+    padding-left: 16px;
+}
+
+.Constructor-Links .link {
+    margin-right: 30px;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.Constructor-Links .link:hover {
+    color: #f00;
+}
+
+.Constructor-Links .link_disabled_yes {
+    color: #f00;
+}
+
+.Constructor-Links .Constructor-Action {
+    display: flex;
+    margin-left: auto;
+}
+
+.Constructor-Links .Constructor-Action .button2 {
+    margin-left: 10px;
+}
+
+
+.Constructor-Links .Constructor-Action .button2 .button2__text {
+    margin-left: 5px;
+}

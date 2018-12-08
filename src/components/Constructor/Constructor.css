@@ -1,10 +1,9 @@
-.Constructor {
-	display: flex;
-	align-items: flex-start;
-	
-	margin: 25px;
-}
-
 .Constructor-Toolbar {
 	margin-right: 50px;
+}
+
+.Constructor {
+	display: inline-block;
+
+	padding-left: 40px;
 }

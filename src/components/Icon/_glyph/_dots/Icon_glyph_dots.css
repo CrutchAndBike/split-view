@@ -1,0 +1,10 @@
+.icon_glyph_dots {
+    background-image: url('./dots.svg');
+    background-size: contain;
+}
+
+.button2 .icon_glyph_dots {
+    margin: 0 8px;
+    top: 8px;
+    width: 18px;
+}

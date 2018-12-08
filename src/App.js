@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AuthComponent from './components/Auth/AuthComponent';
 // import TokenContainer from './components/Token/TokenContainer';
 // import PrivateRoute from './components/PrivateRoute/PrivateRouteComponent';
+import Constructor from './components/Constructor/Constructor';
+
+import { Font } from 'lego-on-react';
 
 import createApplicationStore from './store/createApplicationStore';
 import './App.css';
@@ -19,16 +22,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className={cnApp()}>
-				<Provider store={store}>
-					<PersistGate persistor={persistor}>
-						<Router>
-							<div>
-								<Route path='/auth' component={AuthComponent} />
-								<MainContainer />
-							</div>
-						</Router>
-					</PersistGate>
-				</Provider>
+				<Constructor />
 			</div>
 		);
 	}

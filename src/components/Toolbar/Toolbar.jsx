@@ -13,7 +13,7 @@ class Toolbar extends Component {
 			<ul className={classnames(cnToolbar(), this.props.className)}>
 				<ToolbarElem icon="short" text="Короткий текст" />
 				<ToolbarElem icon="long" text="Длинный текст" />
-				<ToolbarElem icon="radio" text="Один вариант" />
+				<ToolbarElem icon="select" text="Один вариант" />
 				<ToolbarElem icon="check" text="Несколько вариантов" />
 				<ToolbarElem icon="number" text="Число" />
 			</ul>

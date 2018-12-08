@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { cn, classnames } from '@bem-react/classname';
 import Question from '../Question/Question';
+// import { Popup } from 'lego-on-react';
+
 import './Canvas.css';
 
 const cnCanvas = cn('Canvas');
@@ -14,11 +16,11 @@ class Canvas extends Component {
 				</div>
 				<div className={cnCanvas('Body')}>
 					<Question item={{ text: 'Короткий текст', type: 'short' }} />
-					<Question item={{ text: 'Один вариант', type: 'radio' }} />
+					<Question item={{ text: 'Выпадающий список', type: 'select' }} />
 					<Question item={{ text: 'Много вариантов', type: 'check' }} />
 					<Question item={{ text: 'Число', type: 'number' }} />
 				</div>
-			</div>
+			</div >
 		);
 	}
 }

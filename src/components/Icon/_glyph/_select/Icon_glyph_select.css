@@ -1,0 +1,4 @@
+.icon_glyph_select {
+    background-image: url('./select.svg');
+    background-size: contain;
+}
