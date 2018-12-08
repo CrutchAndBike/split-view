@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './PollListComponent.css';
 import { Link, Icon, Button } from 'lego-on-react';
+import Links from '../Links/Links';
 //import Icon from '../Icon/Icon';
 import { cn } from '@bem-react/classname';
 
@@ -46,11 +47,11 @@ class PollListComponent extends Component {
 		return (
 			<div className={cnPollList()}>
 				<div className={cnPollList('Submenu')}>
-					<div className={cnPollList('Filter')}>
-						<Link theme="normal" cls={cnPollList('Link')} text="Активные" onClick={ this.changeFilter('active') } />
-						<Link theme="normal" cls={cnPollList('Link')} text="Неактивные" onClick={ this.changeFilter('closed') } />
-						<Link theme="normal" cls={cnPollList('Link')} text="Все" onClick={ this.changeFilter('all') } />
-					</div>
+					<Links className={cnPollList('Filter')}>
+						<Link disabled={true} cls={cnPollList('Link')} text="Все" onClick={ this.changeFilter('all') } />
+						<Link cls={cnPollList('Link')} text="Активные" onClick={ this.changeFilter('active') } />
+						<Link cls={cnPollList('Link')} text="Неактивные" onClick={ this.changeFilter('closed') } />
+					</Links>
 				</div>
 				<div className={cnPollList('List')}>
 					<div className={cnPollList('List-Header') + ' ' + cnPollList('List-Row')}>
