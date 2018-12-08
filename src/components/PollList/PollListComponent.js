@@ -16,7 +16,7 @@ class PollListComponent extends Component {
 		this.state = {
 			activeFilter: 'active',
 			pollList: []
-		}
+		};
 	}
 
 	statuses = {
@@ -76,7 +76,7 @@ class PollListComponent extends Component {
 								<div className={cnPollList('List-Row')} key={index}>
 									<div className={cnPollList('List-RowCol', { type: 'name' })}>
 										<Icon type="arrow" direction="right" style={{ 'width': "16px", 'height': "16px" }} attrs={{ 'style': { 'width': "16px", 'height': "16px" } }}/>
-										<Link theme="normal" text={ item.name } url={'/poll/'+index }/>
+										<Link theme="normal" text={ item.name } url={'/poll/'+ item._id }/>
 									</div>
 									<div className={cnPollList('List-RowCol', { type: 'status' })}>
 										{ this.statuses[item.status] }
