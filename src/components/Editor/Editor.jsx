@@ -9,19 +9,6 @@ const cnTemplate = cn('template');
 const cnTemplateQuestion = cnTemplate('question');
 
 class Editor extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			question: 'Текст вопроса',
-			answers: [],
-		};
-
-		this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
-		this.handleChangeQuestion = this.handleChangeQuestion.bind(this);
-		this.handleChangeAnswer = this.handleChangeAnswer.bind(this);
-		this.handleDeleteAnswer = this.handleDeleteAnswer.bind(this);
-	}
 
 	render() {
 		const type =  this.props.type;
@@ -37,7 +24,8 @@ class Editor extends Component {
 			<div className={cnTemplate('item')}>
 				<div className={cnTemplate('subtitle')}>Вопрос</div>
 				<TextArea cls={cnTemplateQuestion} theme='normal' size='m' rows={2} 
-					text={ this.props.question || this.getTypeText() } onChange={this.handleChangeQuestion} 
+					text={ this.props.question || this.getTypeText() } 
+					onChange={(e) => this.props.handleChangeQuestion(e)} 
 				/>
 			</div>
 			{
@@ -45,20 +33,21 @@ class Editor extends Component {
 					<div className={cnTemplate('item')}>
 						<div className={cnTemplate('subtitle')}>Ответы</div>
 						<div className={cnTemplate('answers')}>
-							<div className={cnTemplate('button_add')} onClick={this.handleAddButtonClick}>
+							<div className={cnTemplate('button_add')} 
+								onClick={this.props.handleAddButtonClick}>
 								<Icon glyph='plus' size='m' />
 								Добавить
 							</div>
 							<div className={cnTemplate('answers_list')}>
 								{
-									this.state.answers.map((item, index) => {
+									this.props.answers.map((item, index) => {
 										return <div className={cnTemplate('answers_item')} key={index}>
 											<TextInput theme='normal' size='s' text={item} 
-												onChange={(e) => this.handleChangeAnswer(e, index)} 
+												onChange={(e) => this.props.handleChangeAnswer(e, index)} 
 											/>
 											<Button theme='clear' size='s' view='default' tone='default'
 												icon={{ 'mods': { 'type': 'cross' } }} num={index}
-												onClick={() => this.handleDeleteAnswer(index)}
+												onClick={() => this.props.handleDeleteAnswer(index)}
 											/>
 										</div>;
 									})
@@ -87,29 +76,6 @@ class Editor extends Component {
 		return !(this.props.type === 'short' || this.props.type === 'long');
 	}
 
-	handleAddButtonClick() {
-		let prevAnswers = [...this.state.answers];
-		prevAnswers.push(`Вариант ${prevAnswers.length + 1}`);
-		this.setState({ answers: prevAnswers });
-	}
-
-	// Вынести в Parent
-	handleChangeQuestion(e) {
-		this.setState({ question: e });
-	}
-
-	handleDeleteAnswer(index) {
-		let prevAnswers = [...this.state.answers];
-		prevAnswers.splice(index, 1);
-		this.setState({ answers: prevAnswers });
-	}
-
-	handleChangeAnswer(e, index) {
-		let prevAnswers = [...this.state.answers];
-		prevAnswers[index] = e;
-		this.setState({ answers: prevAnswers });
-	}
-	// ---------------
 }
 
 export default Editor;

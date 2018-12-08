@@ -22,8 +22,16 @@ class Constructor extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modalVisible: true
+			modalVisible: true,
+			modalQuestion: 'some question',
+			modalAnswers: [],
 		};
+
+		
+		this.handleModalAddButtonClick = this.handleModalAddButtonClick.bind(this);
+		this.handleModalChangeQuestion = this.handleModalChangeQuestion.bind(this);
+		this.handleModalChangeAnswer = this.handleModalChangeAnswer.bind(this);
+		this.handleModalDeleteAnswer = this.handleModalDeleteAnswer.bind(this);
 	}
 
 	openModal() {
@@ -32,6 +40,28 @@ class Constructor extends Component {
 
 	closeModal() {
 		this.setState({ modalVisible: false });
+	}
+
+	handleModalAddButtonClick() {
+		let prevAnswers = [...this.state.modalAnswers];
+		prevAnswers.push(`Вариант ${prevAnswers.length + 1}`);
+		this.setState({ modalAnswers: prevAnswers });
+	}
+
+	handleModalChangeQuestion(e) {
+		this.setState({ modalQuestion: e });
+	}
+
+	handleModalDeleteAnswer(index) {
+		let prevAnswers = [...this.state.modalAnswers];
+		prevAnswers.splice(index, 1);
+		this.setState({ modalAnswers: prevAnswers });
+	}
+
+	handleModalChangeAnswer(e, index) {
+		let prevAnswers = [...this.state.modalAnswers];
+		prevAnswers[index] = e;
+		this.setState({ modalAnswers: prevAnswers });
 	}
 
 	render() {
@@ -86,7 +116,15 @@ class Constructor extends Component {
 				>
 					<div className={cnConstructor('Content')}>
 						<div className={cnConstructor('Settings')}>
-							<Editor type="check" question='some text' />
+							<Editor 
+								type="check" 
+								question={this.state.modalQuestion} 
+								answers={this.state.modalAnswers}
+								handleChangeQuestion={this.handleModalChangeQuestion}
+								handleAddButtonClick={this.handleModalAddButtonClick}
+								handleChangeAnswer={this.handleModalChangeAnswer}
+								handleDeleteAnswer={this.handleModalDeleteAnswer}
+							/>
 							<Actions />
 						</div>
 						<div className={cnConstructor('Preview')}>
