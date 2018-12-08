@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import './PollList.css';
-import { Link } from 'lego-on-react';
+import './PollListComponent.css';
+import { Link, Icon, Button } from 'lego-on-react';
+//import Icon from '../Icon/Icon';
 import { cn } from '@bem-react/classname';
 
 const cnPollList = cn('PollList');
@@ -16,6 +17,12 @@ class PollListComponent extends Component {
 			activeFilter: 'active',
 			pollList: []
 		}
+	}
+
+	statuses = {
+		'active': 'Активен',
+		'wait': 'Ожидает',
+		'closed': 'Завершён'
 	}
 
 	componentDidMount() {
@@ -49,26 +56,36 @@ class PollListComponent extends Component {
 					<div className={cnPollList('List-Header') + ' ' + cnPollList('List-Row')}>
 						<div className={cnPollList('List-RowCol')}>
 							Название
+							<Icon сls={cnPollList('List-RowCol', 'Control')} glyph="carets-v"/>
 						</div>
 						<div className={cnPollList('List-RowCol')}>
 							Статус
+							<Icon glyph="carets-v"/>
 						</div>
 						<div className={cnPollList('List-RowCol')}>
 							Изменения
+							<Icon glyph="carets-v"/>
+						</div>
+						<div className={cnPollList('List-RowCol')}>
+							
 						</div>
 					</div>
 					<div className={cnPollList('List-Data')}>
 						{
 							this.state.pollList.map((item, index) =>
 								<div className={cnPollList('List-Row')} key={index}>
-									<div className={cnPollList('List-Item') + ' ' + cnPollList('List-RowCol')}>
+									<div className={cnPollList('List-RowCol', { type: 'name' })}>
+										<Icon type="arrow" direction="right" style={{ 'width': "16px", 'height': "16px" }} attrs={{ 'style': { 'width': "16px", 'height': "16px" } }}/>
 										<Link theme="normal" text={ item.name } url={'/poll/'+index }/>
 									</div>
-									<div className={cnPollList('List-Item') + ' ' + cnPollList('List-RowCol')}>
-										{ item.status }
+									<div className={cnPollList('List-RowCol', { type: 'status' })}>
+										{ this.statuses[item.status] }
 									</div>
-									<div className={cnPollList('List-Item') + ' ' + cnPollList('List-RowCol')}>
+									<div className={cnPollList('List-RowCol', { type: 'date' })}>
 										{ item.date }
+									</div>
+									<div className={cnPollList('List-RowCol', { type: 'controls' })}>
+										<Button theme="normal" size="s" view="default" tone="default" text="Удалить"/>
 									</div>
 								</div>
 							)
