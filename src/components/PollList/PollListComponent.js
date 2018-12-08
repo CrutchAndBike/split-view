@@ -24,8 +24,21 @@ class PollListComponent extends Component {
 		};
 	}
 
-	componentDidMount() {
-		axios.get('http://localhost:3001/api/poll', {filter: this.state.activeFilter, limit: 10, offset: 0},  {
+	deletePoll(id) {
+		if(window.confirm('Вы уверены, что хотите удалить опрос?')) {
+			alert('Опрос успешно удалён');
+		}
+	}
+
+	getPolls(status = '', limit = 10, offset = 0) {
+		axios.get('http://localhost:3001/api/poll',
+		{
+			params: {
+			status: status,
+			limit: limit,
+			offset: offset
+			}
+		},  {
 		}).then(res => {
 			if (res.status === 200) {
 				// eslint-disable-next-line no-console
@@ -37,14 +50,13 @@ class PollListComponent extends Component {
 
 	changeFilter(filter) {
 		if(filter) {
-			this.setState({ activeFilter: filter })
+			this.setState({ activeFilter: filter });
+			this.getPolls(filter);
 		}
 	}
 
-	deletePoll(id) {
-		if(window.confirm('Вы уверены, что хотите удалить опрос?')) {
-			alert('Опрос успешно удалён');
-		}
+	componentDidMount() {
+	  this.getPolls();
 	}
 
 	render() {
