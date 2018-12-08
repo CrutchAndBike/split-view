@@ -7,8 +7,6 @@ import { cn } from '@bem-react/classname';
 import TokenContainer from '../Token/TokenContainer';
 import PrivateRoute from '../PrivateRoute/PrivateRouteComponent';
 
-import EditPage from '../Editor/Page';
-
 const cnMain = cn('main');
 
 class Main extends Component {
