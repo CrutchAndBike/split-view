@@ -82,7 +82,7 @@ class Constructor extends Component {
 						this.setState({ modalVisible: false });
 					}}
 				>
-					<Editor type="input" />
+					<Editor type="check" question='some text' />
 				</Modal>
 			</div>
 		);

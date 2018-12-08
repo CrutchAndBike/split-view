@@ -2,32 +2,50 @@
     text-align: left;
     padding: 28px;
 }
+
 .template-title {
     font-size: 24px;
     font-weight: bold;
 }
+
 .template-type {
     font-size: 15px;
     color: rgba(0,0,0,0.5);
     margin-top: 7px;
 }
+
+.template-type .icon {
+    top: 3px;
+    margin-right: 7px;
+}
+
 .template-item {
     margin-top: 28px;
 }
+
 .template-subtitle {
     font-size: 18px;
     font-weight: 700;
 }
+
 .template-question {
     margin-top: 12px;
 }
+
 .template-button_add {
     font-size: 15px;
     margin: 10px 0 5px 0;
 }
+
+.template-button_add .icon {
+    top: 3px;
+    margin-right: 7px;
+}
+
 .template-button_add:hover {
     cursor: pointer;
 }
+
 .template-answers_item {
     margin: 5px 0 5px 0;
     display: flex;
