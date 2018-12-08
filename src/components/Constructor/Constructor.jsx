@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Canvas from '../Canvas/Canvas';
 import Toolbar from '../Toolbar/Toolbar';
 import Icon from '../Icon/Icon';
-import { Link, Button } from 'lego-on-react';
+import { Link, Button, Modal } from 'lego-on-react';
+
+import Editor from '../Editor/Editor';
 
 import './Constructor.css';
 import './Constructor-Body.css';
@@ -16,6 +18,21 @@ import { cn } from '@bem-react/classname';
 const cnConstructor = cn('Constructor');
 
 class Constructor extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			modalVisible: true
+		};
+	}
+
+	openModal() {
+		this.setState({ modalVisible: true });
+	}
+
+	closeModal() {
+		this.setState({ modalVisible: false });
+	}
+
 	render() {
 		return (
 			<div className={cnConstructor()}>
@@ -57,6 +74,16 @@ class Constructor extends Component {
 					<Toolbar className={cnConstructor('Toolbar')} />
 					<Canvas className={cnConstructor('Canvas')} />
 				</div>
+				<Modal
+					theme="normal"
+					autoclosable={true}
+					visible={this.state.modalVisible}
+					onOutsideClick={() => {
+						this.setState({ modalVisible: false });
+					}}
+				>
+					<Editor type="input" />
+				</Modal>
 			</div>
 		);
 	}

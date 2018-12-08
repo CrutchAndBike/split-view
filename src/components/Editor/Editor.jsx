@@ -19,30 +19,32 @@ class Editor extends Component {
 	}
 
 	render() {
-		return <div className={ cnTemplate() }>
-			<div className={ cnTemplate('item') }>
-				<div className={ cnTemplate('title') }>Редактирование вопроса</div>
-				<div className={ cnTemplate('type') }>{this.getTypeText()}</div>
+		return <div className={cnTemplate()}>
+			<div className={cnTemplate('item')}>
+				<div className={cnTemplate('title')}>Редактирование вопроса</div>
+				<div className={cnTemplate('type')}>{this.getTypeText()}</div>
 			</div>
-			<div className={ cnTemplate('item') }>
-				<div className={ cnTemplate('subtitle') }>Вопрос</div>
+			<div className={cnTemplate('item')}>
+				<div className={cnTemplate('subtitle')}>Вопрос</div>
 				<TextArea cls={cnTemplateQuestion} theme='normal' size='m' rows={2} text={this.getTypeText()}></TextArea>
 			</div>
 			{
 				this.needAnswers() ? (
-					<div className={ cnTemplate('item') }>
-						<div className={ cnTemplate('subtitle') }>Ответы</div>
-						<div className={ cnTemplate('answers') }>
-							<div className={ cnTemplate('button_add') } onClick={this.handleAddButtonClick}>
+					<div className={cnTemplate('item')}>
+						<div className={cnTemplate('subtitle')}>Ответы</div>
+						<div className={cnTemplate('answers')}>
+							<div className={cnTemplate('button_add')} onClick={this.handleAddButtonClick}>
 								Добавить
-							</div>							
-							<div className={ cnTemplate('answers_list') }>
+							</div>
+							<div className={cnTemplate('answers_list')}>
 								{
 									this.state.answers.map((item, index) => {
-										return <div className={ cnTemplate('answers_item') } key={index}>
-											<TextInput theme='normal' size='s' text={item} />
-											<Button theme='clear' size='s' view='default' tone='default' 
-												icon={{'mods': {'type': 'cross'}}} />
+										return <div className={cnTemplate('answers_item')} key={index}>
+											<TextInput theme='normal' size='s' text={item} onChange={(e) => {
+												console.log(e);
+											}} />
+											<Button theme='clear' size='s' view='default' tone='default'
+												icon={{ 'mods': { 'type': 'cross' } }} />
 										</div>;
 									})
 								}
@@ -67,13 +69,13 @@ class Editor extends Component {
 	}
 
 	needAnswers() {
-		return  !(this.props.type === 'input' || this.props.type === 'area');
+		return !(this.props.type === 'input' || this.props.type === 'area');
 	}
 
 	handleAddButtonClick() {
 		let prevAnswers = [...this.state.answers];
 		prevAnswers.push(`Вариант ${prevAnswers.length + 1}`);
-		this.setState({answers: prevAnswers});
+		this.setState({ answers: prevAnswers });
 	}
 }
 
