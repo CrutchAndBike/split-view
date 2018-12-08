@@ -1,0 +1,13 @@
+.Actions {
+    border-top: 1px solid rgba(0,0,0,0.1);
+
+    height: 75px;
+    line-height: 75px;
+
+    text-align: right;
+}
+
+
+.Actions .button2 {
+    margin-right: 25px;
+}

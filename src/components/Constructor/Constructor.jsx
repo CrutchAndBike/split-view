@@ -3,6 +3,7 @@ import Canvas from '../Canvas/Canvas';
 import Toolbar from '../Toolbar/Toolbar';
 import Icon from '../Icon/Icon';
 import { Link, Button, Modal } from 'lego-on-react';
+import Actions from '../Actions/Actions';
 
 import Editor from '../Editor/Editor';
 
@@ -83,6 +84,7 @@ class Constructor extends Component {
 					}}
 				>
 					<Editor type="input" />
+					<Actions />
 				</Modal>
 			</div>
 		);
