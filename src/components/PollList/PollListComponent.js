@@ -13,7 +13,8 @@ class PollListComponent extends Component {
 		super(props);
 
 		this.state = {
-			activeFilter: 'active'
+			activeFilter: 'active',
+			pollList: []
 		}
 	}
 
@@ -23,7 +24,7 @@ class PollListComponent extends Component {
 			if (res.status === 200) {
 				// eslint-disable-next-line no-console
 				console.log(res);
-				
+				this.setState({ pollList: res.data});
 			}
 		});
 	}
@@ -57,7 +58,21 @@ class PollListComponent extends Component {
 						</div>
 					</div>
 					<div className={cnPollList('List-Data')}>
-
+						{
+							this.state.pollList.map((item, index) =>
+								<div className={cnPollList('List-Row')} key={index}>
+									<div className={cnPollList('List-Item') + ' ' + cnPollList('List-RowCol')}>
+										<Link theme="normal" text={ item.name } url={'/poll/'+index }/>
+									</div>
+									<div className={cnPollList('List-Item') + ' ' + cnPollList('List-RowCol')}>
+										{ item.status }
+									</div>
+									<div className={cnPollList('List-Item') + ' ' + cnPollList('List-RowCol')}>
+										{ item.date }
+									</div>
+								</div>
+							)
+						}
 					</div>
 				</div>
 			</div>
