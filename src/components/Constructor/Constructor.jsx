@@ -3,6 +3,7 @@ import Canvas from '../Canvas/Canvas';
 import Toolbar from '../Toolbar/Toolbar';
 import Icon from '../Icon/Icon';
 import { Link, Button, Modal } from 'lego-on-react';
+import Actions from '../Actions/Actions';
 
 import Editor from '../Editor/Editor';
 
@@ -75,6 +76,7 @@ class Constructor extends Component {
 					<Canvas className={cnConstructor('Canvas')} />
 				</div>
 				<Modal
+					cls={cnConstructor('Modal')}
 					theme="normal"
 					autoclosable={true}
 					visible={this.state.modalVisible}
@@ -82,7 +84,16 @@ class Constructor extends Component {
 						this.setState({ modalVisible: false });
 					}}
 				>
-					<Editor type="check" question='some text' />
+					
+          <div className={cnConstructor('Content')}>
+            <div className={cnConstructor('Settings')}>
+              <Editor type="check" question='some text' />
+              <Actions />
+            </div>
+            <div className={cnConstructor('Preview')}>
+              Preview
+            </div>
+          </div>
 				</Modal>
 			</div>
 		);

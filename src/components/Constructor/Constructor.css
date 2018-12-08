@@ -7,3 +7,28 @@
 
 	padding-left: 40px;
 }
+
+.Constructor-Modal .modal__content {
+	border-radius: 6px;
+
+	width: 900px;
+
+	background-color: #f9f9f9;
+}
+
+.Constructor-Content {
+	display: flex;
+}
+
+
+.Constructor-Settings {
+	width: 600px;
+}
+
+.Constructor-Preview {
+	background-color: #fff;
+
+	flex: 1 1 auto;
+
+	text-align: center;
+}
