@@ -25,7 +25,7 @@ class PollListComponent extends Component {
 		};
 	}
 
-	deletePoll(id) {
+	deletePoll() {
 		if(window.confirm('Вы уверены, что хотите удалить опрос?')) {
 			alert('Опрос успешно удалён');
 		}
