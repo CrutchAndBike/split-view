@@ -3,6 +3,7 @@ import { Header, Logo, UserAccount } from 'lego-on-react';
 import { Route, Switch } from 'react-router-dom';
 import NavComponent from '../Navigation/NavComponent';
 import ContentComponent from '../Content/ContentComponent';
+import PollListComponent from '../PollList/PollListComponent';
 import './PageComponent.css';
 import { cn } from '@bem-react/classname';
 
@@ -29,7 +30,7 @@ class Page extends Component {
 				</Header>
 				<Switch>
 					<Route exact path='/poll' component={ContentComponent}/>
-					{/* <Route exact path='/create' component={CreateComponent}/> */}
+					<Route exact path='/list' component={PollListComponent}/>
 				</Switch>
 			</div>
 		);
