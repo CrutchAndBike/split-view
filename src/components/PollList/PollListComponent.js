@@ -26,32 +26,37 @@ class PollListComponent extends Component {
 		'closed': 'Завершён'
 	}
 
-	componentDidMount() {
-		axios.get('http://localhost:3001/api/poll', {filter: this.state.activeFilter, limit: 10, offset: 0},  {
-		}).then(res => {
-			if (res.status === 200) {
-				// eslint-disable-next-line no-console
-				console.log(res);
-				this.setState({ pollList: res.data});
-			}
-		});
-	}
+	getPolls(status = '', limit = 10, offset = 0) {
+    axios.get('http://localhost:3001/api/poll',
+      {
+        params: {
+          status: status,
+          limit: limit,
+          offset: offset
+        }
+      },  {
+    }).then(res => {
+      if (res.status === 200) {
+        // eslint-disable-next-line no-console
+        console.log(res);
+        this.setState({ pollList: res.data});
+      }
+    });
+  }
 
-	changeFilter(filter) {
-		if(filter) {
-			//this.setState({ activeFilter: filter })
-		}
+	componentDidMount() {
+	  this.getPolls();
 	}
 
 	render() {
 		return (
 			<div className={cnPollList()}>
 				<div className={cnPollList('Submenu')}>
-					<Links className={cnPollList('Filter')}>
-						<Link disabled={true} cls={cnPollList('Link')} text="Все" onClick={ this.changeFilter('all') } />
-						<Link cls={cnPollList('Link')} text="Активные" onClick={ this.changeFilter('active') } />
-						<Link cls={cnPollList('Link')} text="Неактивные" onClick={ this.changeFilter('closed') } />
-					</Links>
+					<div className={cnPollList('Filter')}>
+            <Link cls={cnPollList('Link')} text="Все" onClick={ () => this.getPolls('all') } />
+						<Link disabled={true} cls={cnPollList('Link')} text="Активные" onClick={ () => this.getPolls('active') } />
+						<Link cls={cnPollList('Link')} text="Неактивные" onClick={ () => this.getPolls('closed') } />
+					</div>
 				</div>
 				<div className={cnPollList('List')}>
 					<div className={cnPollList('List-Header') + ' ' + cnPollList('List-Row')}>
@@ -68,7 +73,7 @@ class PollListComponent extends Component {
 							<Icon glyph="carets-v"/>
 						</div>
 						<div className={cnPollList('List-RowCol')}>
-							
+
 						</div>
 					</div>
 					<div className={cnPollList('List-Data')}>
