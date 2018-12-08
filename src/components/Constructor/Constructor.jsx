@@ -84,15 +84,16 @@ class Constructor extends Component {
 						this.setState({ modalVisible: false });
 					}}
 				>
-					<div className={cnConstructor('Content')}>
-						<div className={cnConstructor('Settings')}>
-							<Editor type="select" />
-							<Actions />
-						</div>
-						<div className={cnConstructor('Preview')}>
-							Preview
-						</div>
-					</div>
+					
+          <div className={cnConstructor('Content')}>
+            <div className={cnConstructor('Settings')}>
+              <Editor type="check" question='some text' />
+              <Actions />
+            </div>
+            <div className={cnConstructor('Preview')}>
+              Preview
+            </div>
+          </div>
 				</Modal>
 			</div>
 		);
