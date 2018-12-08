@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Canvas from '../Canvas/Canvas';
 import Toolbar from '../Toolbar/Toolbar';
 import Icon from '../Icon/Icon';
-import { Link, Button } from 'lego-on-react';
+import { Link, Button, Modal } from 'lego-on-react';
+
+import Editor from '../Editor/Editor';
+import Links from '../Links/Links';
 
 import './Constructor.css';
 import './Constructor-Body.css';
@@ -16,6 +19,21 @@ import { cn } from '@bem-react/classname';
 const cnConstructor = cn('Constructor');
 
 class Constructor extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			modalVisible: true
+		};
+	}
+
+	openModal() {
+		this.setState({ modalVisible: true });
+	}
+
+	closeModal() {
+		this.setState({ modalVisible: false });
+	}
+
 	render() {
 		return (
 			<div className={cnConstructor()}>
@@ -25,10 +43,10 @@ class Constructor extends Component {
 						<Icon glyph="pen" size="m" />
 					</div>
 				</div>
-				<div className={cnConstructor('Links')}>
+				<Links className={cnConstructor('Links')}>
 					<Link href="#" theme="islands" text="Конструктор" disabled={true} />
-					<Link href="#" theme="islands" text="Ответы" disabled={false} />
-					<Link href="#" theme="islands" text="Что-то еще" disabled={false} />
+					<Link href="#" theme="islands" text="Ответы" />
+					<Link href="#" theme="islands" text="Что-то еще" />
 					<div className={cnConstructor('Action')}>
 						<Button size="m"
 							theme="raised"
@@ -52,11 +70,21 @@ class Constructor extends Component {
 							}}
 						/>
 					</div>
-				</div>
+				</Links>
 				<div className={cnConstructor('Body')}>
 					<Toolbar className={cnConstructor('Toolbar')} />
 					<Canvas className={cnConstructor('Canvas')} />
 				</div>
+				<Modal
+					theme="normal"
+					autoclosable={true}
+					visible={this.state.modalVisible}
+					onOutsideClick={() => {
+						this.setState({ modalVisible: false });
+					}}
+				>
+					<Editor type="input" />
+				</Modal>
 			</div>
 		);
 	}
