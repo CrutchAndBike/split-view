@@ -5,7 +5,6 @@ import NavComponent from '../Navigation/NavComponent';
 import ContentComponent from '../Content/ContentComponent';
 import Constructor from '../Constructor/Constructor';
 import PollListComponent from '../PollList/PollListComponent';
-import SplitViewContainer from '../SplitView/SplitViewContainer';
 import './PageComponent.css';
 import { cn } from '@bem-react/classname';
 

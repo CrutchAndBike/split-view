@@ -25,7 +25,7 @@ class TokenCallback extends Component {
 			withCredentials: true
 		}).then(res => {
 			if(res.status === 200) {
-				console.log(res);
+				//console.log(res);
 				this.props.saveUser( { name: res.data.name } );
 				this.setState(() => ({ backendResponded: true }));
 			}
@@ -34,10 +34,10 @@ class TokenCallback extends Component {
 
 	render() {
 		return this.state.backendResponded ? <Redirect to='/list'/>
-		: <div className={cnProgress()}>
-			<h1 className={cnProgress('Header')}>Авторизуем...</h1>
-			<Spin size="l" progress="yes"/>
-		</div>;
+			: <div className={cnProgress()}>
+				<h1 className={cnProgress('Header')}>Авторизуем...</h1>
+				<Spin size="l" progress="yes"/>
+			</div>;
 	}
 
 }

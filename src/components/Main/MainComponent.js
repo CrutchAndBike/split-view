@@ -11,7 +11,6 @@ const cnMain = cn('main');
 
 class Main extends Component {
 	render() {
-		console.log(this.props);
 		return (
 			<div className={cnMain()}>
 				<Switch>

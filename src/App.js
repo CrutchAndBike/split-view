@@ -7,7 +7,6 @@ import AuthComponent from './components/Auth/AuthComponent';
 import createApplicationStore from './store/createApplicationStore';
 import './App.css';
 import { cn } from '@bem-react/classname';
-import PageContainer from './components/Page/PageContainer';
 
 const cnApp = cn('App');
 
@@ -22,7 +21,6 @@ class App extends Component {
 						<Router>
 							<div>
 								<Route path='/auth' component={AuthComponent} />
-								
 								<MainContainer />
 							</div>
 						</Router>

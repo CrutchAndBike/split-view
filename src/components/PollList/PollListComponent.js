@@ -26,26 +26,28 @@ class PollListComponent extends Component {
 
 	deletePoll(id) {
 		if(window.confirm('Вы уверены, что хотите удалить опрос?')) {
-			alert('Опрос успешно удалён');
+			alert('Опрос '+id+' успешно удалён');
 		}
 	}
 
 	getPolls(status = '', limit = 10, offset = 0) {
-		axios.get('http://localhost:3001/api/poll',
-		{
-			params: {
-			status: status,
-			limit: limit,
-			offset: offset
-			}
-		},  {
-		}).then(res => {
-			if (res.status === 200) {
-				// eslint-disable-next-line no-console
-				console.log(res);
-				this.setState({ pollList: res.data});
-			}
-		});
+		axios.get('http://localhost:3001/api/poll', 
+			{
+				params: {
+					status: status,
+					limit: limit,
+					offset: offset
+				}
+			},  
+			{
+			})
+			.then(res => {
+				if (res.status === 200) {
+					// eslint-disable-next-line no-console
+					console.log(res);
+					this.setState({ pollList: res.data});
+				}
+			});
 	}
 
 	changeFilter(filter) {
@@ -56,7 +58,7 @@ class PollListComponent extends Component {
 	}
 
 	componentDidMount() {
-	  this.getPolls();
+		this.getPolls();
 	}
 
 	render() {
@@ -91,36 +93,36 @@ class PollListComponent extends Component {
 									Управление
 								</div>
 							</div>
-								<div className={cnPollList('List-Data')}>
-									{
-										this.state.pollList.map((item, index) =>
-											<div className={cnPollList('List-Row')} key={index}>
-												<div className={cnPollList('List-RowCol', { type: 'name' })}>
-													<Link theme="normal" text={ item.name } url={'/poll/'+ item._id }/>
-												</div>
-												<div className={cnPollList('List-RowCol', { type: 'status' })}>
-													{ statuses[item.status] }
-												</div>
-												<div className={cnPollList('List-RowCol', { type: 'date' })}>
-													{ item.date }
-												</div>
-												<div className={cnPollList('List-RowCol', { type: 'controls' })}>
-													<Button theme="normal" size="s" pin="circle-brick" text="Изменить" type="link" url="/constructor"/>
-													<Button theme="normal" size="s" pin="brick-circle" text="Удалить" onClick={ () => this.deletePoll(item._id) }/>
-												</div>
+							<div className={cnPollList('List-Data')}>
+								{
+									this.state.pollList.map((item, index) =>
+										<div className={cnPollList('List-Row')} key={index}>
+											<div className={cnPollList('List-RowCol', { type: 'name' })}>
+												<Link theme="normal" text={ item.name } url={'/poll/'+ item._id }/>
 											</div>
-										)
-									}
+											<div className={cnPollList('List-RowCol', { type: 'status' })}>
+												{ statuses[item.status] }
+											</div>
+											<div className={cnPollList('List-RowCol', { type: 'date' })}>
+												{ item.date }
+											</div>
+											<div className={cnPollList('List-RowCol', { type: 'controls' })}>
+												<Button theme="normal" size="s" pin="circle-brick" text="Изменить" type="link" url="/constructor"/>
+												<Button theme="normal" size="s" pin="brick-circle" text="Удалить" onClick={ () => this.deletePoll(item._id) }/>
+											</div>
+										</div>
+									)
+								}
+							</div>
 						</div>
-				</div>
-				:
-				<div className={cnPollList('Сard')}>
-					<div className={cnPollList('Сard-Message')}>
-						<h3 className={cnPollList('Сard-Title')}>У вас пока нет таких опросов</h3>
-						<Link theme="normal" url="/constructor" text="Создайте новый опрос" /> или измените существующий.
-					</div>
-					<div className={cnPollList('Сard-Image')}></div>
-				</div>
+						:
+						<div className={cnPollList('Сard')}>
+							<div className={cnPollList('Сard-Message')}>
+								<h3 className={cnPollList('Сard-Title')}>У вас пока нет таких опросов</h3>
+								<Link theme="normal" url="/constructor" text="Создайте новый опрос" /> или измените существующий.
+							</div>
+							<div className={cnPollList('Сard-Image')}></div>
+						</div>
 				}
 			</div>
 		);
