@@ -5,6 +5,7 @@ import Icon from '../Icon/Icon';
 import { Link, Button, Modal } from 'lego-on-react';
 
 import Editor from '../Editor/Editor';
+import Links from '../Links/Links';
 
 import './Constructor.css';
 import './Constructor-Body.css';
@@ -42,10 +43,10 @@ class Constructor extends Component {
 						<Icon glyph="pen" size="m" />
 					</div>
 				</div>
-				<div className={cnConstructor('Links')}>
+				<Links className={cnConstructor('Links')}>
 					<Link href="#" theme="islands" text="Конструктор" disabled={true} />
-					<Link href="#" theme="islands" text="Ответы" disabled={false} />
-					<Link href="#" theme="islands" text="Что-то еще" disabled={false} />
+					<Link href="#" theme="islands" text="Ответы" />
+					<Link href="#" theme="islands" text="Что-то еще" />
 					<div className={cnConstructor('Action')}>
 						<Button size="m"
 							theme="raised"
@@ -69,7 +70,7 @@ class Constructor extends Component {
 							}}
 						/>
 					</div>
-				</div>
+				</Links>
 				<div className={cnConstructor('Body')}>
 					<Toolbar className={cnConstructor('Toolbar')} />
 					<Canvas className={cnConstructor('Canvas')} />
