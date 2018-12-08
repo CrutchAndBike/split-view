@@ -20,9 +20,19 @@
 	display: flex;
 }
 
-
 .Constructor-Settings {
-	width: 600px;
+	width: 550px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.Constructor-Settings .Constructor-Actions {
+	flex: 0 1 auto;
+}
+
+.Constructor-Settings .template {
+	flex: 1 0 auto;
 }
 
 .Constructor-Preview {
