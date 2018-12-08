@@ -20,9 +20,6 @@ class Main extends Component {
 					<PrivateRoute exact path='/poll' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
 					<Route exact path='/auth' component={AuthComponent}/>
 					<Route exact path='/token' component={TokenContainer}/>
-
-					{/* Проверка шаблона редактора элемента */}
-					<Route exact path='/edit' component={EditPage}/>
 				</Switch>
 			</div>
 		);

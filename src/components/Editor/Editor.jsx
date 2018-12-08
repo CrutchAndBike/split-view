@@ -55,22 +55,19 @@ class Editor extends Component {
 	}
 
 	getTypeText() {
-		switch(this.props.type) {
-			case 'input': return 'Короткий текст';
-			case 'area': return 'Длинный текст';
-			case 'select': return 'Выпадающий список';
-			case 'radio': return 'Один вариант';
-			case 'checkbox': return 'Несколько вариантов';
-			default: return null;
-		}
+		const types = {
+			input: 'Короткий текст',
+			area: 'Длинный текст',
+			select: 'Выпадающий список',
+			radio: 'Один вариант',
+			checkbox: 'Несколько вариантов',
+		};
+
+		return types[this.props.type];
 	}
 
 	needAnswers() {
-		if(this.props.type === 'input' || this.props.type === 'area') {
-			return false;
-		} else {
-			return true;
-		}
+		return  !(this.props.type === 'input' || this.props.type === 'area');
 	}
 
 	handleAddButtonClick() {
