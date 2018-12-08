@@ -26,35 +26,27 @@ class PollListComponent extends Component {
 
 	deletePoll(id) {
 		if(window.confirm('Вы уверены, что хотите удалить опрос?')) {
-			alert('Опрос '+id+' успешно удалён');
+			alert('Опрос успешно удалён');
 		}
 	}
 
 	getPolls(status = '', limit = 10, offset = 0) {
-		axios.get('http://localhost:3001/api/poll', 
+		axios.get('http://localhost:3001/api/poll',
 			{
 				params: {
 					status: status,
 					limit: limit,
 					offset: offset
-				}
-			},  
-			{
-			})
-			.then(res => {
-				if (res.status === 200) {
-					// eslint-disable-next-line no-console
-					console.log(res);
-					this.setState({ pollList: res.data});
-				}
-			});
-	}
-
-	changeFilter(filter) {
-		if(filter) {
-			this.setState({ activeFilter: filter });
-			this.getPolls(filter);
-		}
+				},
+				withCredentials: true
+			},  {
+			}).then(res => {
+			if (res.status === 200) {
+				// eslint-disable-next-line no-console
+				console.log(res);
+				this.setState({ pollList: res.data});
+			}
+		});
 	}
 
 	componentDidMount() {
@@ -66,10 +58,10 @@ class PollListComponent extends Component {
 			<div className={cnPollList()}>
 				<div className={cnPollList('Submenu')}>
 					<Links className={cnPollList('Filter')}>
-						<Link disabled={this.state.activeFilter === 'all'} cls={cnPollList('Link')} text="Все" onClick={ () => this.changeFilter('all') } />
-						<Link disabled={this.state.activeFilter === 'active'} cls={cnPollList('Link')} text="Активные" onClick={ () => this.changeFilter('active') } />
-						<Link disabled={this.state.activeFilter === 'wait'} cls={cnPollList('Link')} text="Ожидающие" onClick={ () => this.changeFilter('wait') } />
-						<Link disabled={this.state.activeFilter === 'closed'} cls={cnPollList('Link')} text="Завершённые" onClick={ () => this.changeFilter('closed') } />
+						<Link disabled={this.state.activeFilter === 'all'} cls={cnPollList('Link')} text="Все" onClick={ () => this.getPolls('') } />
+						<Link disabled={this.state.activeFilter === 'active'} cls={cnPollList('Link')} text="Активные" onClick={ () => this.getPolls('active') } />
+						<Link disabled={this.state.activeFilter === 'wait'} cls={cnPollList('Link')} text="Ожидающие" onClick={ () => this.getPolls('wait') } />
+						<Link disabled={this.state.activeFilter === 'closed'} cls={cnPollList('Link')} text="Завершённые" onClick={ () => this.getPolls('closed') } />
 					</Links>
 					<Button cls={cnPollList('AddButton')} theme="action" size="m" view="default" tone="default" type="link" text="Добавить опрос" url="/constructor" />
 				</div>
