@@ -17,9 +17,10 @@ class Main extends Component {
 			<div className={cnMain()}>
 				<Switch>
 					<PrivateRoute exact path='/poll' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
+					<PrivateRoute exact path='/list' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
 					<Route exact path='/auth' component={AuthComponent}/>
 					<Route exact path='/token' component={TokenContainer}/>
-					<Route exact path='/list' component={PollListComponent} />
+					{/* <Route exact path='/list' component={PollListComponent} /> */}
 				</Switch>
 			</div>
 		);

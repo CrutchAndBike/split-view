@@ -1,0 +1,46 @@
+.PollList {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.PollList-Submenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 32px 25px 24px 40px;
+}
+
+.PollList-Filter {
+    font-size: 18px;
+}
+
+.PollList-List {
+    position: relative;
+    box-sizing: border-box;
+    padding: 8px 28px 20px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+}
+
+.PollList-List-Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 46px;
+    height: 46px;
+}
+
+.PollList-List-Row {
+    position: relative;
+    font-size: 15px;
+    min-height: 63px;
+}
+
+.PollList-List-RowCol {
+    padding: 0 12px;
+    box-sizing: border-box;
+    -ms-flex: 1 1 100px;
+    flex: 1 1 100px;
+}
