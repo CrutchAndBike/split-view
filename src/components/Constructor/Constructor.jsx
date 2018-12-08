@@ -76,6 +76,7 @@ class Constructor extends Component {
 					<Canvas className={cnConstructor('Canvas')} />
 				</div>
 				<Modal
+					cls={cnConstructor('Modal')}
 					theme="normal"
 					autoclosable={true}
 					visible={this.state.modalVisible}
@@ -83,8 +84,15 @@ class Constructor extends Component {
 						this.setState({ modalVisible: false });
 					}}
 				>
-					<Editor type="input" />
-					<Actions />
+					<div className={cnConstructor('Content')}>
+						<div className={cnConstructor('Settings')}>
+							<Editor type="select" />
+							<Actions />
+						</div>
+						<div className={cnConstructor('Preview')}>
+							Preview
+						</div>
+					</div>
 				</Modal>
 			</div>
 		);
