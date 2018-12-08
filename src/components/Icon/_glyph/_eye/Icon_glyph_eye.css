@@ -1,0 +1,9 @@
+.icon_glyph_eye {
+    background-image: url('./eye.svg');
+    background-size: contain;
+}
+
+.button2 .icon_glyph_eye {
+    top: 8px;
+    margin-left: 5px;
+}

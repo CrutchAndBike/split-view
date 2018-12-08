@@ -1,6 +1,6 @@
 import { withBemMod } from '@bem-react/core';
 
-import './index.css';
+import './Icon_size_m.css';
 
 const IconSizeM = withBemMod('icon', { size: 'm' });
 

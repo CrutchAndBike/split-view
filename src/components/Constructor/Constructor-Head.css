@@ -1,0 +1,8 @@
+.Constructor-Head {
+    display: flex;
+
+    height: 90px;
+    line-height: 90px;
+
+    padding-left: 16px;
+}

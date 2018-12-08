@@ -1,3 +1,6 @@
 .Toolbar {
     width: 220px;
+
+    margin: 0;
+    padding: 0;
 }
