@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Spin } from 'lego-on-react';
+import { cn } from '@bem-react/classname';
 import { Redirect } from 'react-router-dom';
+import './Progress.css';
+
+const cnProgress = cn('Progress');
 
 class TokenCallback extends Component {
 	constructor(props) {
@@ -28,7 +33,11 @@ class TokenCallback extends Component {
 	}
 
 	render() {
-		return this.state.backendResponded && <Redirect to='/poll'/>;
+		return this.state.backendResponded ? <Redirect to='/list'/>
+		: <div className={cnProgress()}>
+			<h1 className={cnProgress('Header')}>Авторизуем...</h1>
+			<Spin size="l" progress="yes"/>
+		</div>;
 	}
 
 }

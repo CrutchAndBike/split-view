@@ -1,5 +1,6 @@
 .PollList {
-    width: 60%;
+    width: 80%;
+    max-width: 1440px;
     margin: 0 auto;
     margin-top: 95px;
 }
@@ -21,6 +22,10 @@
     border-radius: 4px;
     background-color: #fff;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+}
+
+.PollList-AddButton  .icon {
+    transform: rotate(45deg);
 }
 
 .PollList-List-Row {
@@ -63,4 +68,33 @@
 .PollList-List-RowCol_type_name {
     flex-grow: 1;
     padding-right: 20px;
+}
+
+.PollList-Сard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 384px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+    font-size: 18px;
+    line-height: 1.44;
+}
+
+.PollList-Сard-Message {
+    width: 394px;
+    margin-left: 110px;
+}
+
+.PollList-Сard-Title {
+    width: 394px;
+}
+
+.PollList-Сard-Image {
+    background-image: url(./card-image.svg);
+    background-repeat: no-repeat;
+    margin-top: 80px;
+    width: 394px;
+    height: 300px;
 }

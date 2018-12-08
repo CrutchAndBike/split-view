@@ -4,12 +4,10 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AuthComponent from './components/Auth/AuthComponent';
-// import TokenContainer from './components/Token/TokenContainer';
-// import PrivateRoute from './components/PrivateRoute/PrivateRouteComponent';
-
 import createApplicationStore from './store/createApplicationStore';
 import './App.css';
 import { cn } from '@bem-react/classname';
+import PageContainer from './components/Page/PageContainer';
 
 const cnApp = cn('App');
 
@@ -24,6 +22,7 @@ class App extends Component {
 						<Router>
 							<div>
 								<Route path='/auth' component={AuthComponent} />
+								
 								<MainContainer />
 							</div>
 						</Router>
