@@ -15,7 +15,7 @@ class PollListComponent extends Component {
 		this.state = {
 			activeFilter: 'active',
 			pollList: []
-		}
+		};
 	}
 
 	componentDidMount() {
@@ -62,7 +62,7 @@ class PollListComponent extends Component {
 							this.state.pollList.map((item, index) =>
 								<div className={cnPollList('List-Row')} key={index}>
 									<div className={cnPollList('List-Item') + ' ' + cnPollList('List-RowCol')}>
-										<Link theme="normal" text={ item.name } url={'/poll/'+index }/>
+										<Link theme="normal" text={ item.name } url={'/poll/'+ item._id }/>
 									</div>
 									<div className={cnPollList('List-Item') + ' ' + cnPollList('List-RowCol')}>
 										{ item.status }
