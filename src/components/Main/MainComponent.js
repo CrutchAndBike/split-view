@@ -6,6 +6,7 @@ import './MainComponent.css';
 import { cn } from '@bem-react/classname';
 import TokenContainer from '../Token/TokenContainer';
 import PrivateRoute from '../PrivateRoute/PrivateRouteComponent';
+import PollListComponent from '../PollList/PollListComponent';
 
 const cnMain = cn('main');
 
@@ -18,6 +19,7 @@ class Main extends Component {
 					<PrivateRoute exact path='/poll' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
 					<Route exact path='/auth' component={AuthComponent}/>
 					<Route exact path='/token' component={TokenContainer}/>
+					<Route exact path='/list' component={PollListComponent} />
 				</Switch>
 			</div>
 		);
