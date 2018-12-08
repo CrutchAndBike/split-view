@@ -8,16 +8,12 @@ import { cn } from '@bem-react/classname';
 const cnToolbar = cn('Toolbar');
 
 class ToolbarElem extends Component {
-	addForm(type) {
-		console.log(type);
-	}
-
 	render() {
 		const text = this.props.text || '';
 		const icon = this.props.icon || '';
 
 		return (
-			<li draggable={true} className={cnToolbar('Elem')} onClick={() => this.addForm(icon)}>
+			<li draggable={true} className={cnToolbar('Elem')} onClick={() => this.props.onClick(this.props.icon)}>
 				<Icon glyph={icon} size="m" />
 				{text}
 			</li>

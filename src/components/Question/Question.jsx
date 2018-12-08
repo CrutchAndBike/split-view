@@ -12,8 +12,7 @@ const cnQuestion = cn('Question');
 
 class Question extends Component {
 	render() {
-		const { text, type } = this.props.item;
-
+		const { text, type, id } = this.props;
 		return (
 			<div className={cnQuestion()}>
 				<div className={cnQuestion('Title')}>{text}</div>
@@ -21,7 +20,7 @@ class Question extends Component {
 					<Icon glyph={type} size="m" />
 					{text}
 				</div>
-				<div className={cnQuestion('Delete')}>
+				<div className={cnQuestion('Delete')} onClick={() => this.props.deleteHandler(id)}>
 					<Icon glyph="trash" size="m" alt="Удалить" />
 				</div>
 			</div>
