@@ -10,6 +10,7 @@ import AuthComponent from './components/Auth/AuthComponent';
 import createApplicationStore from './store/createApplicationStore';
 import './App.css';
 import { cn } from '@bem-react/classname';
+import PollListComponent from './components/PollList/PollListComponent';
 
 const cnApp = cn('App');
 
@@ -23,6 +24,7 @@ class App extends Component {
 					<PersistGate persistor={persistor}>
 						<Router>
 							<div>
+								<Route exact path='/list' component={PollListComponent} />
 								<Route path='/auth' component={AuthComponent} />
 								<MainContainer />
 							</div>
