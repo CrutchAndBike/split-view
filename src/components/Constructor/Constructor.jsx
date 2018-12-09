@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Canvas from '../Canvas/Canvas';
-import Toolbar from '../Toolbar/Toolbar';
+import CanvasContainer from '../Canvas/CanvasContainer';
+import ToolbarContainer from '../Toolbar/ToolbarContainer';
 import Icon from '../Icon/Icon';
 import { Link, Button, Modal } from 'lego-on-react';
 
@@ -72,8 +72,8 @@ class Constructor extends Component {
 					</div>
 				</Links>
 				<div className={cnConstructor('Body')}>
-					<Toolbar className={cnConstructor('Toolbar')} />
-					<Canvas className={cnConstructor('Canvas')} />
+					<ToolbarContainer className={cnConstructor('Toolbar')} />
+					<CanvasContainer className={cnConstructor('Canvas')} />
 				</div>
 				<Modal
 					theme="normal"
