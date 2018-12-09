@@ -1,34 +1,56 @@
-.template {
-    text-align: left;
+.Editor {
     padding: 28px;
 }
-.template-title {
+
+.Editor-Title {
     font-size: 24px;
     font-weight: bold;
 }
-.template-type {
+
+.Editor-Type {
     font-size: 15px;
     color: rgba(0,0,0,0.5);
     margin-top: 7px;
 }
-.template-item {
-    margin-top: 28px;
+
+.Editor-Type .icon {
+    top: 3px;
+    margin-right: 7px;
 }
-.template-subtitle {
+
+.Editor-Head {
+    margin-bottom: 28px;
+}
+
+.Editor-item {
+    margin-top: 0px;
+}
+
+.Editor-Subtitle {
     font-size: 18px;
     font-weight: 700;
+    margin-bottom: 12px;
 }
-.template-question {
-    margin-top: 12px;
+
+.Editor-Options {
+    margin-top: 32px;
 }
-.template-button_add {
+
+.Editor-button_add {
     font-size: 15px;
-    margin: 10px 0 5px 0;
+    margin: 10px 0 15px 0;
 }
-.template-button_add:hover {
+
+.Editor-button_add .icon {
+    top: 3px;
+    margin-right: 7px;
+}
+
+.Editor-button_add:hover {
     cursor: pointer;
 }
-.template-answers_item {
-    margin: 5px 0 5px 0;
+
+.Editor-answers_item {
+    margin: 10px 0 10px 0;
     display: flex;
 }

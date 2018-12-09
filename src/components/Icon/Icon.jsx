@@ -11,6 +11,7 @@ import IconTypeTrash from './_glyph/_trash/Icon_glyph_trash';
 import IconTypePen from './_glyph/_pen/Icon_glyph_pen';
 import IconTypeDots from './_glyph/_dots/Icon_glyph_dots';
 import IconTypeEye from './_glyph/_eye/Icon_glyph_eye';
+import IconTypePlus from './_glyph/_plus/Icon_glyph_plus';
 
 import IconSizeM from './_size/_m/Icon_size_m';
 
@@ -24,6 +25,7 @@ const Icon = compose(
 	IconTypePen,
 	IconTypeDots,
 	IconTypeEye,
+	IconTypePlus,
 	IconSizeM
 )(Base);
 

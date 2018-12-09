@@ -1,50 +1,54 @@
 import React, { Component } from 'react';
 import './Editor.css';
 import { TextArea, TextInput, Button } from 'lego-on-react';
+import Icon from '../Icon/Icon';
 import { cn } from '@bem-react/classname';
 
 // cn here
-const cnTemplate = cn('template');
-const cnTemplateQuestion = cnTemplate('question');
+const cnEditor = cn('Editor');
+const cnEditorQuestion = cnEditor('question');
 
 class Editor extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			answers: [],
-		};
-
-		this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
-	}
 
 	render() {
-		return <div className={cnTemplate()}>
-			<div className={cnTemplate('item')}>
-				<div className={cnTemplate('title')}>Редактирование вопроса</div>
-				<div className={cnTemplate('type')}>{this.getTypeText()}</div>
+		const type = this.props.type;
+
+		return <div className={cnEditor()}>
+			<div className={cnEditor('Head')}>
+				<div className={cnEditor('Title')}>Редактирование вопроса</div>
+				<div className={cnEditor('Type')}>
+					<Icon glyph={type} size='m' />
+					{this.getTypeText()}
+				</div>
 			</div>
-			<div className={cnTemplate('item')}>
-				<div className={cnTemplate('subtitle')}>Вопрос</div>
-				<TextArea cls={cnTemplateQuestion} theme='normal' size='m' rows={2} text={this.getTypeText()}></TextArea>
+			<div className={cnEditor('Body')}>
+				<div className={cnEditor('Subtitle')}>Вопрос</div>
+				<TextArea cls={cnEditorQuestion} theme='normal' size='m' rows={2}
+					text={this.props.question || this.getTypeText()}
+					onChange={(e) => this.props.handleChangeQuestion(e)}
+				/>
 			</div>
 			{
 				this.needAnswers() ? (
-					<div className={cnTemplate('item')}>
-						<div className={cnTemplate('subtitle')}>Ответы</div>
-						<div className={cnTemplate('answers')}>
-							<div className={cnTemplate('button_add')} onClick={this.handleAddButtonClick}>
+					<div className={cnEditor('Options')}>
+						<div className={cnEditor('Subtitle')}>Ответы</div>
+						<div className={cnEditor('Answers')}>
+							<div className={cnEditor('button_add')}
+								onClick={this.props.handleAddButtonClick}>
+								<Icon glyph='plus' size='m' />
 								Добавить
 							</div>
-							<div className={cnTemplate('answers_list')}>
+							<div className={cnEditor('answers_list')}>
 								{
-									this.state.answers.map((item, index) => {
-										return <div className={cnTemplate('answers_item')} key={index}>
-											<TextInput theme='normal' size='s' text={item} onChange={(e) => {
-												console.log(e);
-											}} />
+									this.props.answers.map((item, index) => {
+										return <div className={cnEditor('answers_item')} key={index}>
+											<TextInput theme='normal' size='s' text={item}
+												onChange={(e) => this.props.handleChangeAnswer(e, index)}
+											/>
 											<Button theme='clear' size='s' view='default' tone='default'
-												icon={{ 'mods': { 'type': 'cross' } }} />
+												icon={{ 'mods': { 'type': 'cross' } }} num={index}
+												onClick={() => this.props.handleDeleteAnswer(index)}
+											/>
 										</div>;
 									})
 								}
@@ -58,25 +62,20 @@ class Editor extends Component {
 
 	getTypeText() {
 		const types = {
-			input: 'Короткий текст',
-			area: 'Длинный текст',
-			select: 'Выпадающий список',
-			radio: 'Один вариант',
-			checkbox: 'Несколько вариантов',
+			short: 'Короткий текст',
+			long: 'Длинный текст',
+			select: 'Один вариант',
+			check: 'Несколько вариантов',
+			number: 'Число',
 		};
 
-		return types[this.props.type];
+		return types[this.props.type] || 'Элемент';
 	}
 
 	needAnswers() {
-		return !(this.props.type === 'input' || this.props.type === 'area');
+		return !(this.props.type === 'short' || this.props.type === 'long');
 	}
 
-	handleAddButtonClick() {
-		let prevAnswers = [...this.state.answers];
-		prevAnswers.push(`Вариант ${prevAnswers.length + 1}`);
-		this.setState({ answers: prevAnswers });
-	}
 }
 
 export default Editor;
