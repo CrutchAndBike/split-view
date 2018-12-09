@@ -1,0 +1,19 @@
+.Links {
+    display: flex;
+    align-items: center;
+}
+
+.Links .link {
+    margin-right: 30px;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.Links .link:hover {
+    color: #f00;
+}
+
+.Links .link_disabled_yes {
+    color: #f00;
+}

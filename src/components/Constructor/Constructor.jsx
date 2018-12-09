@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Canvas from '../Canvas/Canvas';
-import Toolbar from '../Toolbar/Toolbar';
+import CanvasContainer from '../Canvas/CanvasContainer';
+import ToolbarContainer from '../Toolbar/ToolbarContainer';
 import Icon from '../Icon/Icon';
 import { Link, Button, Modal } from 'lego-on-react';
 import Actions from '../Actions/Actions';
 
 import Editor from '../Editor/Editor';
+import Links from '../Links/Links';
 
 import './Constructor.css';
 import './Constructor-Body.css';
@@ -73,10 +74,10 @@ class Constructor extends Component {
 						<Icon glyph="pen" size="m" />
 					</div>
 				</div>
-				<div className={cnConstructor('Links')}>
+				<Links className={cnConstructor('Links')}>
 					<Link href="#" theme="islands" text="Конструктор" disabled={true} />
-					<Link href="#" theme="islands" text="Ответы" disabled={false} />
-					<Link href="#" theme="islands" text="Что-то еще" disabled={false} />
+					<Link href="#" theme="islands" text="Ответы" />
+					<Link href="#" theme="islands" text="Что-то еще" />
 					<div className={cnConstructor('Action')}>
 						<Button size="m"
 							theme="raised"
@@ -100,10 +101,10 @@ class Constructor extends Component {
 							}}
 						/>
 					</div>
-				</div>
+				</Links>
 				<div className={cnConstructor('Body')}>
-					<Toolbar className={cnConstructor('Toolbar')} />
-					<Canvas className={cnConstructor('Canvas')} />
+					<ToolbarContainer className={cnConstructor('Toolbar')} />
+					<CanvasContainer className={cnConstructor('Canvas')} />
 				</div>
 				<Modal
 					cls={cnConstructor('Modal')}

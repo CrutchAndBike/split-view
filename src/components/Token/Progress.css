@@ -1,0 +1,13 @@
+.Progress {
+    width: 50%;
+    height: 200px;
+    margin: 10% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Progress-Header {
+    font-size: 28px;
+}
