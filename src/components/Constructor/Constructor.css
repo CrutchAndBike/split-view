@@ -27,7 +27,7 @@
 	flex-direction: column;
 }
 
-.Constructor-Settings .template {
+.Constructor-Settings .Editor {
 	overflow: scroll;
 
 	height: 100%;

@@ -11,8 +11,8 @@ class Actions extends Component {
 	render() {
 		return (
 			<div className={cnActions()}>
-				<Button theme="normal" size="m" text="Отмена" />
-				<Button theme="action" size="m" text="Сохранить" />
+				<Button theme="normal" size="m" text="Отмена" onClick={this.props.handleCloseModal} />
+				<Button theme="action" size="m" text="Сохранить" onClick={this.props.handleCloseModal} />
 			</div>
 		);
 	}
