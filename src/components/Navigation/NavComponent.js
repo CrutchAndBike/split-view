@@ -11,7 +11,7 @@ class NavComponent extends Component {
 			<div className={cnNavigation()}>
 				{
 					this.props.links.map((link, index) =>
-						<Link key={index} cls={cnNavigation('link')} theme="black" text={link}/>)
+						<Link key={index} cls={cnNavigation('link')} theme="black" text={link.text} type="link" url={link.url}/>)
 				}
 			</div>
 		);

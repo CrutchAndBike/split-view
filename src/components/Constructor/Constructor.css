@@ -3,7 +3,9 @@
 }
 
 .Constructor {
-	display: inline-block;
-
+	width: 80%;
+	max-width: 920px;
+	margin: 0 auto;
+	margin-top: 80px;
 	padding-left: 40px;
 }
