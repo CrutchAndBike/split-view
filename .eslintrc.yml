@@ -16,7 +16,7 @@ plugins:
 rules:
   no-console:
     - 1
-  indent: [ "error", "tab", {"SwitchCase": 1}]
+  indent: [ "error", 4]
   linebreak-style:
     - error
     - unix

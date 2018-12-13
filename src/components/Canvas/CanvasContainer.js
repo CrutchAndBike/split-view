@@ -3,11 +3,11 @@ import CanvasComponent from './CanvasComponent';
 import { deleteFieldList } from '../../store/actions/splitView';
 
 const mapStateToProps = ({ splitViewStore: { fieldList } }) => ({
-	fieldList
+    fieldList
 });
 
 const mapDispatchToProps = {
-	deleteFieldList
+    deleteFieldList
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CanvasComponent);
