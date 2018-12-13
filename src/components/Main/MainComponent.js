@@ -10,20 +10,20 @@ import PrivateRoute from '../PrivateRoute/PrivateRouteComponent';
 const cnMain = cn('main');
 
 class Main extends Component {
-	render() {
-		return (
-			<div className={cnMain()}>
-				<Switch>
-					<PrivateRoute exact path='/poll' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
-					<PrivateRoute exact path='/list' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
-					<PrivateRoute exact path='/poll/:id' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
-					<PrivateRoute exact path='/constructor' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
-					<Route exact path='/auth' component={AuthComponent}/>
-					<Route exact path='/token' component={TokenContainer}/>
-				</Switch>
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div className={cnMain()}>
+                <Switch>
+                    <PrivateRoute exact path='/poll' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
+                    <PrivateRoute exact path='/list' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
+                    <PrivateRoute exact path='/poll/:id' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
+                    <PrivateRoute exact path='/constructor' isAuthorized={Boolean(this.props.userInfo.name)} component={PageContainer}/>
+                    <Route exact path='/auth' component={AuthComponent}/>
+                    <Route exact path='/token' component={TokenContainer}/>
+                </Switch>
+            </div>
+        );
+    }
 }
 
 export default Main;

@@ -4,32 +4,32 @@ export const SET_QUESTIONS = 'SET_QUESTIONS';
 export const SET_FIELDS = 'SET_FIELDS';
 
 const INITIAL_STATE = {
-	isFinished: false,
-	userInfo: {},
-	questions: [],
-	fieldList: []
+    isFinished: false,
+    userInfo: {},
+    questions: [],
+    fieldList: []
 };
 
 const ACTION_HANDLERS = {
-	[SET_IS_FINISHED]: (state, { payload }) => ({
-		...state,
-		isFinished: payload
-	}),
-	[SET_USER_INFO]: (state, { payload }) => ({
-		...state,
-		userInfo: payload
-	}),
-	[SET_QUESTIONS]: (state, { payload }) => ({
-		...state,
-		questions: payload
-	}),
-	[SET_FIELDS]: (state, { payload }) => ({
-		...state,
-		fieldList: [...payload]
-	})
+    [SET_IS_FINISHED]: (state, { payload }) => ({
+        ...state,
+        isFinished: payload
+    }),
+    [SET_USER_INFO]: (state, { payload }) => ({
+        ...state,
+        userInfo: payload
+    }),
+    [SET_QUESTIONS]: (state, { payload }) => ({
+        ...state,
+        questions: payload
+    }),
+    [SET_FIELDS]: (state, { payload }) => ({
+        ...state,
+        fieldList: [...payload]
+    })
 };
 
 export default (state = INITIAL_STATE, action) => {
-	const handler = ACTION_HANDLERS[action.type];
-	return handler ? handler(state, action) : state;
+    const handler = ACTION_HANDLERS[action.type];
+    return handler ? handler(state, action) : state;
 };

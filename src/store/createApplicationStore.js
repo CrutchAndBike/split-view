@@ -4,15 +4,15 @@ import createRootReducer from './createRootReducer';
 import { persistStore } from 'redux-persist';
 
 const createApplicationStore = () => {
-	const rootReducer = createRootReducer();
+    const rootReducer = createRootReducer();
 
-	const store = createStore(rootReducer, compose(
-		applyMiddleware(thunk),
-		window.devToolsExtension ? window.devToolsExtension() : f => f
-	));
-	const persistor = persistStore(store);
+    const store = createStore(rootReducer, compose(
+        applyMiddleware(thunk),
+        window.devToolsExtension ? window.devToolsExtension() : f => f
+    ));
+    const persistor = persistStore(store);
 
-	return { store, persistor };
+    return { store, persistor };
 };
 
 export default createApplicationStore;

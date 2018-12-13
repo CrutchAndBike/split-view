@@ -6,16 +6,16 @@ import { cn } from '@bem-react/classname';
 const cnNavigation = cn('navigation');
 
 class NavComponent extends Component {
-	render() {
-		return (
-			<div className={cnNavigation()}>
-				{
-					this.props.links.map((link, index) =>
-						<Link key={index} cls={cnNavigation('link')} theme="black" text={link.text} type="link" url={link.url}/>)
-				}
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div className={cnNavigation()}>
+                {
+                    this.props.links.map((link, index) =>
+                        <Link key={index} cls={cnNavigation('link')} theme="black" text={link.text} type="link" url={link.url}/>)
+                }
+            </div>
+        );
+    }
 }
 
 export default NavComponent;
