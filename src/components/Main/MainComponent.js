@@ -5,7 +5,7 @@ import AuthComponent from '../Auth/AuthComponent';
 import './MainComponent.css';
 import { cn } from '@bem-react/classname';
 import TokenContainer from '../Token/TokenContainer';
-import PrivateRoute from '../PrivateRoute/PrivateRouteComponent';
+// import PrivateRoute from '../PrivateRoute/PrivateRouteComponent';
 
 const cnMain = cn('main');
 

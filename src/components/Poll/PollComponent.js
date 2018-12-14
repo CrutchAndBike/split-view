@@ -7,18 +7,16 @@ const cnPollElement = cn('option');
 
 class PollComponent extends Component {
     renderCmpByType(options) {
-        let component;
         switch(options.type) {
         case 'image':
-            component = <div>
+            return <React.Fragment>
                 <Image
                     cls={cnPollElement('image')}
                     url={options.url}
                     onClick={() => this.props.showResult()}
                 />
                 <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
-            </div>;
-            break;
+            </React.Fragment>;
         case 'audio':
             return <div>
                     <audio cls={cnPollElement('audio')} controls="controls">
@@ -26,12 +24,18 @@ class PollComponent extends Component {
                     </audio>
                     <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
                 </div>;
+        case 'video':
+            return <React.Fragment>
+                <video className={cnPollElement('video')} controls="controls" muted autoPlay>
+                    <source src={options.url}/>
+                </video>
+                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={options.answer} />
+            </React.Fragment>;
         default:
-            component = <div>
-                <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
-            </div>;
+            return <React.Fragment>
+                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={options.answer} />
+            </React.Fragment>;
         }
-        return component;
     }
 
     render() {

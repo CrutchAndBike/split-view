@@ -1,10 +1,15 @@
 .polls {
     display: block;
-    margin: 30px;
-    padding-top: 20px;
+    margin: 20px;
 }
 
 .polls-container {
     display: flex;
     justify-content: space-evenly;
+}
+
+.polls-header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
 }
