@@ -8,14 +8,14 @@ import { cn } from '@bem-react/classname';
 const cnActions = cn('Actions');
 
 class Actions extends Component {
-	render() {
-		return (
-			<div className={cnActions()}>
-				<Button theme="normal" size="m" text="Отмена" onClick={this.props.handleCloseModal} />
-				<Button theme="action" size="m" text="Сохранить" onClick={this.props.handleCloseModal} />
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div className={cnActions()}>
+                <Button theme="normal" size="m" text="Отмена" onClick={this.props.handleCloseModal} />
+                <Button theme="action" size="m" text="Сохранить" onClick={this.props.handleCloseModal} />
+            </div>
+        );
+    }
 }
 
 export default Actions;

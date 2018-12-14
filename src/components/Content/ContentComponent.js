@@ -12,8 +12,10 @@ class ContentComponent extends Component {
                 <SplitViewContainer
                     header="Заголовок"
                     answers={[
-                        { type: 'image', url: 'https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&h=427', answer: 'Кот' },
-                        { type: 'image', url: 'https://www.ampravda.ru/files/articles-2/80488/2mm40ud6mvum-640.jpg', answer: 'Пёс' }
+                        { type: 'video', url: 'https://s3.eu-west-3.amazonaws.com/split-view/dog.mp4' },
+                        { type: 'video', url: 'https://s3.eu-west-3.amazonaws.com/split-view/cat.mp4' },
+                        // { type: 'image', url: 'https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&h=427', answer: 'Кот' },
+                        // { type: 'image', url: 'https://www.ampravda.ru/files/articles-2/80488/2mm40ud6mvum-640.jpg', answer: 'Пёс' }
                     ]}
                     setup={[
                         { type: 'select', text: 'Имя', options: ['Один', 'Два'] },

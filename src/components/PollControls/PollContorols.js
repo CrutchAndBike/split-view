@@ -7,14 +7,24 @@ const cnPollControls = cn('controls');
 const cnPollControl = cnPollControls('item');
 
 class PollControls extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            text: '',
+            select: '',
+            checkbox: false
+        };
+    }
+
     render() {
         return <div className={cnPollControls()}>
             {
                 this.props.setup.map((control, index) => {
                     switch(control.type) {
                     case 'input':
-                        return <TextInput cls={cnPollControl} theme="normal" size="m" text={control.text}
-                            key={index} />;
+                        return <TextInput cls={cnPollControl} theme="normal" size="m" text={this.state.text}
+                            key={index} onChange={() => this.setState({ text: 'aaa'})}/>;
                     case 'select':
                         return <Select cls={cnPollControl} theme="normal" size="m" type="radio"
                             text={control.text} items={control.options} key={index} />;
