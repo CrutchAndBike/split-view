@@ -18,7 +18,7 @@ class TokenCallback extends Component {
 
         const token = /access_token=([^&]+)/.exec(document.location.hash)[1];
 
-        axios.get('https://kauzlein.ru:3001/login/yandex', {
+        axios.get('https://kauzlein.ru:3443/login/yandex', {
             headers: {
                 'Authorization': token
             },
