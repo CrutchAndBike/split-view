@@ -18,7 +18,7 @@ class PollComponent extends Component {
             </React.Fragment>;
         case 'audio':
             return <div>
-                
+
             </div>;
         case 'video':
             return <React.Fragment>
@@ -31,6 +31,13 @@ class PollComponent extends Component {
                     tone="default" 
                     text={props.options.answer} 
                     onClick={() => this.props.showResult()}/>
+            </React.Fragment>;
+        case 'text':
+            return <React.Fragment>
+                <div className={cnPollElement('text')}>
+                    {options.data}
+                </div>
+                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={options.answer} />
             </React.Fragment>;
         default:
             return <React.Fragment>
