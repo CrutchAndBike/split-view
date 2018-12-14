@@ -18,10 +18,11 @@ class ContentComponent extends Component {
                         // { type: 'image', url: 'https://www.ampravda.ru/files/articles-2/80488/2mm40ud6mvum-640.jpg', answer: 'Пёс' }
                     ]}
                     setup={[
-                        { type: 'select', text: 'Имя', options: ['Один', 'Два'] },
-                        { type: 'input', text: 'Поле' },
-                        { type: 'checkbox', text: 'Чекбокс' }
+                        { type: 'input', text: 'Имя' },
+                        { type: 'select', text: 'Есть ли домашние животные?', options: ['Один', 'Два'] },
+                        { type: 'checkbox', text: 'Согласен, что котики милые' }
                     ]}
+                    hasForm={true}
                 />
             </div>
         );

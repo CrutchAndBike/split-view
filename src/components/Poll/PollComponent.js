@@ -6,16 +6,15 @@ import { cn } from '@bem-react/classname';
 const cnPollElement = cn('option');
 
 class PollComponent extends Component {
-    renderCmpByType(options) {
-        switch(options.type) {
+    renderCmpByType(props) {
+        switch(props.options.type) {
         case 'image':
             return <React.Fragment>
                 <Image
                     cls={cnPollElement('image')}
-                    url={options.url}
-                    onClick={() => this.props.showResult()}
-                />
-                <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
+                    url={props.options.url}
+                    onClick={() => this.props.showResult()}/>
+                <Button theme="action" size="l" view="default" tone="default" text={props.options.answer} />
             </React.Fragment>;
         case 'audio':
             return <div>
@@ -24,13 +23,21 @@ class PollComponent extends Component {
         case 'video':
             return <React.Fragment>
                 <video className={cnPollElement('video')} controls="controls" muted autoPlay>
-                    <source src={options.url}/>
+                    <source src={props.options.url}/>
                 </video>
-                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={options.answer} />
+                <Button theme="action" 
+                    cls={cnPollElement('button') + ' ' + cnPollElement('button', { active: true })} 
+                    size="l" view="default" 
+                    tone="default" 
+                    text={props.options.answer} 
+                    onClick={() => this.props.showResult()}/>
             </React.Fragment>;
         default:
             return <React.Fragment>
-                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={options.answer} />
+                <Button 
+                    theme="action" cls={cnPollElement('button')} 
+                    size="l" view="default" tone="default" 
+                    text={props.options.answer} />
             </React.Fragment>;
         }
     }
@@ -38,7 +45,7 @@ class PollComponent extends Component {
     render() {
         return (
             <div className={cnPollElement()}>
-                {this.renderCmpByType(this.props.options)}
+                {this.renderCmpByType(this.props)}
             </div>
         );
     }
