@@ -7,10 +7,9 @@ const cnPollElement = cn('option');
 
 class PollComponent extends Component {
     renderCmpByType(options) {
-        let component;
         switch(options.type) {
         case 'image':
-            component = <div>
+            return <div>
                 <Image
                     cls={cnPollElement('image')}
                     url={options.url}
@@ -18,13 +17,22 @@ class PollComponent extends Component {
                 />
                 <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
             </div>;
-            break;
+        case 'audio':
+            return <div>
+                
+            </div>;
+        case 'video':
+            return <div>
+                <video cls={cnPollElement('video')} controls="controls">
+                    <source src={options.url}/>
+                </video>
+                <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
+            </div>;
         default:
-            component = <div>
+            return <div>
                 <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
             </div>;
         }
-        return component;
     }
 
     render() {

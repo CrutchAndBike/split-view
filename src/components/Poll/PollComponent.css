@@ -1,3 +1,8 @@
+.option {
+    position: relative;
+    width: inherit;
+}
+
 .option-image {
     width: 100%;
     border: 1px #cccccc;
@@ -10,4 +15,8 @@
 
 .option-image_clicked {
     box-shadow: 0px 0px 10px green;
+}
+
+.option-video {
+    width: 100%;
 }
