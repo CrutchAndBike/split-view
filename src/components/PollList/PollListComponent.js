@@ -43,7 +43,7 @@ class PollListComponent extends Component {
     }
 
     getPolls(status = '', limit = 10, offset = 0) {
-        axios.get('https://kauzlein.ru:3001/api/poll',
+        axios.get('https://kauzlein.ru:3443/api/poll',
             {
                 params: {
                     status: status,
