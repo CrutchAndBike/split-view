@@ -38,3 +38,8 @@
     max-width: 100%;
     height: auto;
 }
+
+.option audio {
+    width: 80%;
+    padding-top: 20px;
+}
