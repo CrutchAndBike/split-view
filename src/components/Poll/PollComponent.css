@@ -25,6 +25,20 @@
     border: 1px #cccccc;
 }
 
+.option-text {
+    margin: 20px;
+    padding: 20px;
+    width: calc(100% - 80px);
+    min-height: 150px;
+    max-height: 500px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    line-height: 1.3em;
+    font-size: 1.2em;
+    border-radius: 4px;
+    height: calc(100% - 150px);
+}
+
 .option-image:hover {
     opacity: .7;
     cursor: pointer;
