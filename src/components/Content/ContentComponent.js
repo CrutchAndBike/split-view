@@ -20,10 +20,11 @@ class ContentComponent extends Component {
                         // { type: 'text', data: 'hello lorem', answer: 'Право' }
                     ]}
                     setup={[
-                        { type: 'select', text: 'Имя', options: ['Один', 'Два'] },
-                        { type: 'input', text: 'Поле' },
-                        { type: 'checkbox', text: 'Чекбокс' }
+                        { type: 'input', text: 'Имя' },
+                        { type: 'select', text: 'Есть ли домашние животные?', options: ['Один', 'Два'] },
+                        { type: 'checkbox', text: 'Согласен, что котики милые' }
                     ]}
+                    hasForm={true}
                 />
             </div>
         );
