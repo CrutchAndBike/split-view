@@ -35,9 +35,9 @@ class PollComponent extends Component {
         case 'text':
             return <React.Fragment>
                 <div className={cnPollElement('text')}>
-                    {options.data}
+                    {props.options.data}
                 </div>
-                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={options.answer} />
+                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={props.options.answer} />
             </React.Fragment>;
         default:
             return <React.Fragment>
