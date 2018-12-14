@@ -9,29 +9,29 @@ class PollComponent extends Component {
     renderCmpByType(options) {
         switch(options.type) {
         case 'image':
-            return <div>
+            return <React.Fragment>
                 <Image
                     cls={cnPollElement('image')}
                     url={options.url}
                     onClick={() => this.props.showResult()}
                 />
                 <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
-            </div>;
+            </React.Fragment>;
         case 'audio':
             return <div>
                 
             </div>;
         case 'video':
-            return <div>
-                <video cls={cnPollElement('video')} controls="controls">
+            return <React.Fragment>
+                <video className={cnPollElement('video')} controls="controls" muted autoPlay>
                     <source src={options.url}/>
                 </video>
-                <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
-            </div>;
+                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={options.answer} />
+            </React.Fragment>;
         default:
-            return <div>
-                <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
-            </div>;
+            return <React.Fragment>
+                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={options.answer} />
+            </React.Fragment>;
         }
     }
 

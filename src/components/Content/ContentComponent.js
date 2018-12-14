@@ -10,10 +10,10 @@ class ContentComponent extends Component {
         return (
             <div className={cnContent()}>
                 <SplitViewContainer
-                    header="Заголовок"
+                    header="Твоё любимое животное?"
                     answers={[
-                        { type: 'video', url: 'https://s3.eu-west-3.amazonaws.com/split-view/dog.mp4' },
-                        { type: 'video', url: 'https://s3.eu-west-3.amazonaws.com/split-view/cat.mp4' },
+                        { type: 'video', url: 'https://s3.eu-west-3.amazonaws.com/split-view/dog.mp4', answer: 'Котики' },
+                        { type: 'video', url: 'https://s3.eu-west-3.amazonaws.com/split-view/cat.mp4', answer: 'Пёсики' },
                         // { type: 'image', url: 'https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&h=427', answer: 'Кот' },
                         // { type: 'image', url: 'https://www.ampravda.ru/files/articles-2/80488/2mm40ud6mvum-640.jpg', answer: 'Пёс' }
                     ]}
