@@ -11,3 +11,7 @@
 .option-image_clicked {
     box-shadow: 0px 0px 10px green;
 }
+
+.option-audio {
+    width: 100%;
+}

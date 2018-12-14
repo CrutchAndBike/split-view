@@ -19,6 +19,13 @@ class PollComponent extends Component {
                 <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
             </div>;
             break;
+        case 'audio':
+            return <div>
+                    <audio cls={cnPollElement('audio')} controls="controls">
+                        <source src={options.url}/>
+                    </audio>
+                    <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
+                </div>;
         default:
             component = <div>
                 <Button theme="action" size="l" view="default" tone="default" text={options.answer} />
