@@ -31,6 +31,8 @@ class CanvasComponent extends Component {
             nameA: '',
             nameB: ''
         };
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     deleteHandler(index) {
@@ -62,21 +64,31 @@ class CanvasComponent extends Component {
     }
 
     changeNameB(val) {
-        this.setState({ nameB: val });
+        this.setState({nameB: val});
+    }
+
+    handleClick(index) {
+        this.props.openModal(index);
     }
 
     render() {
         const { className, fieldList } = this.props;
-
-        const question = fieldList.map((field, index) =>
-            <Question key={index} id={index} type={field} text={QUESTION_TYPES[field].text}
-                deleteHandler={this.deleteHandler} />
+        const question = fieldList.map(({ type, question }, index) =>
+            <Question
+                key={index}
+                id={index}
+                type={type}
+                text={QUESTION_TYPES[type].text}
+                question={question}
+                deleteHandler={this.deleteHandler}
+                onClick={() => this.handleClick(index)} />
         );
 
         const split = <div className={cnCanvas('Split')}>
             <div className={cnCanvas('SplitType')}>
                 <span className={cnCanvas('SplitLabel')}>Тип элемента:</span>
-                <RadioButton size="m" theme="normal" id="show_to" name="show_to" value={this.state.type} onChange={this.checkedRadioHandler} >
+                <RadioButton size="m" theme="normal" id="show_to" name="show_to" value={this.state.type}
+                    onChange={this.checkedRadioHandler} >
                     <RadioButton.Radio value="text">Текст</RadioButton.Radio>
                     <RadioButton.Radio value="image">Картинка</RadioButton.Radio>
                     <RadioButton.Radio value="video">Видео</RadioButton.Radio>
@@ -87,13 +99,17 @@ class CanvasComponent extends Component {
             {
                 this.state.type === 'text' ?
                     <div className={cnCanvas('Form')} >
-                        <Variant name={this.state.nameA} type={this.state.type} value={this.state.textA} onChange={this.changeA} onChangeName={this.changeNameA} title="Первый вариант" />
-                        <Variant name={this.state.nameB} type={this.state.type} value={this.state.textB} onChange={this.changeB} onChangeName={this.changeNameB} title="Второй вариант" />
+                        <Variant name={this.state.nameA} type={this.state.type} value={this.state.textA}
+                            onChange={this.changeA} onChangeName={this.changeNameA} title="Первый вариант" />
+                        <Variant name={this.state.nameB} type={this.state.type} value={this.state.textB}
+                            onChange={this.changeB} onChangeName={this.changeNameB} title="Второй вариант" />
                     </div>
                     :
                     <div className={cnCanvas('Form')} >
-                        <Variant name={this.state.nameA} type={this.state.type} files={this.state.fileA} onChange={this.changeFileA} onChangeName={this.changeNameA} title="Первый вариант" />
-                        <Variant name={this.state.nameB} type={this.state.type} files={this.state.fileB} onChange={this.changeFileB} onChangeName={this.changeNameB} title="Второй вариант" />
+                        <Variant name={this.state.nameA} type={this.state.type} files={this.state.fileA}
+                            onChange={this.changeFileA} onChangeName={this.changeNameA} title="Первый вариант" />
+                        <Variant name={this.state.nameB} type={this.state.type} files={this.state.fileB}
+                            onChange={this.changeFileB} onChangeName={this.changeNameB} title="Второй вариант" />
                     </div>
             }
         </div>;
@@ -101,7 +117,9 @@ class CanvasComponent extends Component {
         return (
             <div className={classnames(cnCanvas(), className)}>
                 <div className={cnCanvas('Head')}>
-                    <div className={cnCanvas('Title')}>{this.props.type === 'question' ? 'Вопросы' : 'Голосование'}</div>
+                    <div className={cnCanvas('Title')}>
+                        {this.props.type === 'question' ? 'Вопросы' : 'Голосование'}
+                    </div>
                 </div>
                 <div className={cnCanvas('Body')}>
                     {

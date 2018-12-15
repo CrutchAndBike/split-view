@@ -14,8 +14,8 @@ class ToolbarComponent extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(componentType) {
-        this.props.addFieldList(componentType);
+    handleClick(questionType) {
+        this.props.addFieldList(questionType);
     }
 
     render() {
