@@ -3,10 +3,8 @@ import MainContainer from './components/Main/MainContainer';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import PrivateRoute from './components/PrivateRoute/PrivateRouteComponent';
 import AuthComponent from './components/Auth/AuthComponent';
 import createApplicationStore from './store/createApplicationStore';
-import PageContainer from './components/Page/PageContainer';
 import './App.css';
 import { cn } from '@bem-react/classname';
 
