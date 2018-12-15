@@ -3,6 +3,22 @@
     max-width: 1440px;
     margin: 0 auto;
     margin-top: 95px;
+    margin-bottom: 20px;
+}
+
+.PollList-Head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PollList-Chart {
+    width: 70%;
+    padding: 10px 0; 
+}
+
+.PollList-Details {
+    width: 30%;
 }
 
 .PollList-Submenu {
