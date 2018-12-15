@@ -4,7 +4,7 @@
 
 .Constructor {
 	width: 80%;
-	max-width: 920px;
+	max-width: 1100px;
 	margin: 0 auto;
 	margin-top: 80px;
 	padding-left: 40px;
@@ -44,4 +44,8 @@
 
 	border-top-right-radius: 6px;
 	border-bottom-right-radius: 6px;
+}
+
+.Constructor-CanvasArea .Canvas {
+	margin-bottom: 40px;
 }

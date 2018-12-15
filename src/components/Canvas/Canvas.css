@@ -1,7 +1,7 @@
 .Canvas {
 	background-color:rgba(0,0,0,0.02);
 
-	width: 700px;
+	width: 830px;
 
 	padding-bottom: 90px;
 
@@ -23,4 +23,18 @@
 	color: rgba(0,0,0,0.5);
 	font-size: 13px;
 	font-weight: bold;
+}
+
+.Canvas-SplitType {
+	padding: 20px 40px;
+}
+
+.Canvas-SplitType .Canvas-SplitLabel {
+	margin-right: 10px;
+
+	font-weight: bold;
+}
+
+.Canvas-Last {
+	padding-bottom: 0;
 }

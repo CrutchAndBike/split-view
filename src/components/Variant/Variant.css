@@ -1,0 +1,24 @@
+.Variant {
+    padding: 30px 40px;
+
+    background-color: #fff;
+
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.Variant-Name {
+    display: flex;
+
+    line-height: 30px;
+
+    margin-bottom: 25px;
+}
+
+.Variant-Label {
+    margin-right: 10px;
+}
+
+.Variant-Title {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
