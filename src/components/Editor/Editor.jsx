@@ -4,7 +4,6 @@ import { TextArea, TextInput, Button } from 'lego-on-react';
 import Icon from '../Icon/Icon';
 import { cn } from '@bem-react/classname';
 
-// cn here
 const cnEditor = cn('Editor');
 const cnEditorQuestion = cnEditor('question');
 
@@ -23,8 +22,13 @@ class Editor extends Component {
             </div>
             <div className={cnEditor('Body')}>
                 <div className={cnEditor('Subtitle')}>Вопрос</div>
-                <TextArea cls={cnEditorQuestion} theme='normal' size='m' rows={2}
-                    text={this.props.question || this.getTypeText()}
+                <TextArea
+                    cls={cnEditorQuestion}
+                    placeholder="Введите вопрос"
+                    theme="normal"
+                    size="m"
+                    rows={2}
+                    text={this.props.question}
                     onChange={(e) => this.props.handleChangeQuestion(e)}
                 />
             </div>
