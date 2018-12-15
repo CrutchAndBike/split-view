@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './PollControls.css';
 import { Button, Select, CheckBox, TextInput } from 'lego-on-react';
 import { cn } from '@bem-react/classname';
+import axios from 'axios';
 
 const cnPollControls = cn('controls');
 const cnPollControl = cnPollControls('item');
@@ -11,14 +12,37 @@ class PollControls extends Component {
         super(props);
 
         this.state = {
-            text: '',
-            select: '',
-            checkbox: false
+            field: {}
         };
     }
 
     vote() {
-        console.log('Вы проголосовали');
+        axios.post('https://kauzlein.ru:3443/api/insert-result',
+            {
+                body: {
+                    pollId: this.props.pollId,
+                    selectedVariant: 1,
+                    forms: {}
+                },
+                withCredentials: true
+            },  {
+            }).then(res => {
+            if (res.status === 200) {
+                console.log('Вы проголосовали');
+            }
+        });
+    }
+
+    onChangeHandler(e, index) {
+        const newField = Object.assign({}, this.state.field);
+        newField[index] = e;
+        this.setState({ field: newField });
+    }
+
+    onChangeCheckboxHandler(index) {
+        const newField = Object.assign({}, this.state.field);
+        newField[index] = !newField[index];
+        this.setState({ field: newField });
     }
 
     render() {
@@ -28,22 +52,22 @@ class PollControls extends Component {
                     { this.props.setup.map((control, index) => {
                         switch(control.type) {
                         case 'input':
-                            return <React.Fragment>
+                            return <React.Fragment key={index}>
                                 <label className={cnPollControls('item-label')}>{control.text}</label>
-                                <TextInput cls={cnPollControl} theme="normal" size="m" text={this.state.text}
-                                    key={index} onChange={(e) => this.setState({ text: e})}/>
+                                <TextInput cls={cnPollControl} theme="normal" size="m" text={this.state.field[control.text]}
+                                    onChange={(e) => this.onChangeHandler(e, control.text)}/>
                             </React.Fragment>;
                         case 'select':
-                            return <React.Fragment>
+                            return <React.Fragment key={index}>
                                 <label className={cnPollControls('item-label')}>{control.text}</label>
                                 <Select cls={cnPollControl} theme="normal" size="m" type="radio" 
-                                    items={control.options.map((item, i) => { return { val: i, text: item };})} key={index} />
+                                    val={this.state.field[control.text]}
+                                    onChange={(e) => this.onChangeHandler(e, control.text)}
+                                    items={control.options.map((item, i) => { return { val: i, text: item };})} />
                             </React.Fragment>;
                         case 'checkbox':
-                            return <React.Fragment>
-                                <CheckBox cls={cnPollControl} theme="normal" size="m"  checked={this.state.checkbox} text={control.text}
-                                    key={index} onChange={() => this.setState({ checkbox: !this.state.checkbox })}/>
-                            </React.Fragment>;
+                            return <CheckBox cls={cnPollControl} theme="normal" size="m" checked={this.state.field[control.text]} text={control.text} 
+                                key={index} onChange={() => this.onChangeCheckboxHandler(control.text)}/>;
                         default:
                             return null;
                         }

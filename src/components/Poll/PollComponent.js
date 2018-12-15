@@ -14,13 +14,14 @@ class PollComponent extends Component {
                     cls={cnPollElement('image')}
                     url={props.options.url}
                     onClick={() => this.props.showResult()}/>
-                <Button theme="action" size="l" view="default" tone="default" text={props.options.answer} />
+                <Button theme="action" size="l" view="default" tone="default" text={props.options.answer || 'Выбрать'} />
             </React.Fragment>;
         case 'audio':
             return <div>
 
             </div>;
         case 'video':
+            console.log(this.props);
             return <React.Fragment>
                 <video className={cnPollElement('video')} controls="controls" muted autoPlay>
                     <source src={props.options.url}/>
@@ -29,22 +30,22 @@ class PollComponent extends Component {
                     cls={cnPollElement('button') + ' ' + cnPollElement('button', { active: true })} 
                     size="l" view="default" 
                     tone="default" 
-                    text={props.options.answer} 
-                    onClick={() => this.props.showResult()}/>
+                    text={props.options.answer || 'Выбрать'} 
+                    onClick={() => this.props.onClick(this.props.index+1)}/>
             </React.Fragment>;
         case 'text':
             return <React.Fragment>
                 <div className={cnPollElement('text')}>
                     {props.options.data}
                 </div>
-                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={props.options.answer} />
+                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={props.options.answer || 'Выбрать'} />
             </React.Fragment>;
         default:
             return <React.Fragment>
                 <Button 
                     theme="action" cls={cnPollElement('button')} 
                     size="l" view="default" tone="default" 
-                    text={props.options.answer} />
+                    text={props.options.answer || 'Выбрать'} />
             </React.Fragment>;
         }
     }
