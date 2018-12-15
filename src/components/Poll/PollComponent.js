@@ -21,13 +21,12 @@ class PollComponent extends Component {
 
             </div>;
         case 'video':
-            console.log(this.props);
             return <React.Fragment>
                 <video className={cnPollElement('video')} controls="controls" muted autoPlay>
                     <source src={props.options.url}/>
                 </video>
                 <Button theme="action" 
-                    cls={cnPollElement('button') + ' ' + cnPollElement('button', { active: true })} 
+                    cls={cnPollElement('button')} 
                     size="l" view="default" 
                     tone="default" 
                     text={props.options.answer || 'Выбрать'} 
@@ -51,6 +50,8 @@ class PollComponent extends Component {
     }
 
     render() {
+        let isActive = this.props.checkedOption === this.props.index;
+        console.log(!isActive);
         return (
             <div className={cnPollElement()}>
                 {this.renderCmpByType(this.props)}

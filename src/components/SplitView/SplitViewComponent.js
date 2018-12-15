@@ -12,7 +12,7 @@ class SplitViewComponent extends Component {
 
         this.state = {
             checked: false,
-            checkedOption: undefined,
+            checkedOption: 0
         };
     }
 
@@ -20,8 +20,6 @@ class SplitViewComponent extends Component {
         if(this.state.checkedOption !== index) {
             this.setState({ checkedOption : index });
         }
-        this.setState({ checkedOption: index });
-        console.log(this.state.checkedOption, index);
     }
 
     render() {
@@ -44,7 +42,7 @@ class SplitViewComponent extends Component {
                     {this.props.hasForm && <h3 className={cnPollContainer('form-header')}>{this.props.formHeader || 'Расскажите о себе' }</h3>}
                     <div className={cnPollContainer('controls')}>
                         <PollControls setup={setup} hasForm={this.props.hasForm} pollId={this.props.pollId}
-                            checkedOption/>
+                            checkedOption={this.state.checkedOption}/>
                     </div>
                 </div>
             </React.Fragment>}
