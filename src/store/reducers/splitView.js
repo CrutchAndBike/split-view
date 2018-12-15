@@ -1,12 +1,10 @@
 export const SET_IS_FINISHED = 'SET_IS_FINISHED';
 export const SET_USER_INFO = 'SET_USER_INFO';
-export const SET_QUESTIONS = 'SET_QUESTIONS';
 export const SET_FIELDS = 'SET_FIELDS';
 
 const INITIAL_STATE = {
     isFinished: false,
     userInfo: {},
-    questions: [],
     fieldList: []
 };
 
@@ -18,10 +16,6 @@ const ACTION_HANDLERS = {
     [SET_USER_INFO]: (state, { payload }) => ({
         ...state,
         userInfo: payload
-    }),
-    [SET_QUESTIONS]: (state, { payload }) => ({
-        ...state,
-        questions: payload
     }),
     [SET_FIELDS]: (state, { payload }) => ({
         ...state,

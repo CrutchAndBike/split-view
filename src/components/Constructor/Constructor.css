@@ -4,44 +4,12 @@
 
 .Constructor {
 	width: 80%;
-	max-width: 920px;
+	max-width: 1100px;
 	margin: 0 auto;
 	margin-top: 80px;
 	padding-left: 40px;
 }
 
-.Constructor-Modal .modal__content {
-	border-radius: 6px;
-
-	width: 900px;
-
-	background-color: #f9f9f9;
-}
-
-.Constructor-Content {
-	display: flex;
-}
-
-.Constructor-Settings {
-	width: 550px;
-	height: 80vh;
-	display: flex;
-	flex-direction: column;
-}
-
-.Constructor-Settings .Editor {
-	overflow: scroll;
-
-	height: 100%;
-}
-
-.Constructor-Preview {
-	background-color: #fff;
-
-	flex: 1 1 auto;
-
-	text-align: center;
-
-	border-top-right-radius: 6px;
-	border-bottom-right-radius: 6px;
+.Constructor-CanvasArea .Canvas {
+	margin-bottom: 40px;
 }

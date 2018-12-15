@@ -1,0 +1,29 @@
+.QuestionModal .modal__content {
+    border-radius: 6px;
+    width: 900px;
+    background-color: #f9f9f9;
+}
+
+.QuestionModal-Content {
+    display: flex;
+}
+
+.QuestionModal-Settings {
+    width: 550px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.QuestionModal-Settings .Editor {
+    overflow: scroll;
+    height: 100%;
+}
+
+.QuestionModal-Preview {
+    background-color: #fff;
+    flex: 1 1 auto;
+    text-align: center;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}

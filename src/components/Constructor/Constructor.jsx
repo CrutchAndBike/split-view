@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import CanvasContainer from '../Canvas/CanvasContainer';
 import ToolbarContainer from '../Toolbar/ToolbarContainer';
 import Icon from '../Icon/Icon';
-import { Link, Button, Modal } from 'lego-on-react';
-import Actions from '../Actions/Actions';
+import { Link, Button } from 'lego-on-react';
+import QuestionModalContainer from '../QuestionModal/QuestionModalContainer';
 
-import Editor from '../Editor/Editor';
 import Links from '../Links/Links';
 
 import './Constructor.css';
@@ -23,6 +22,7 @@ class Constructor extends Component {
     constructor(props) {
         super(props);
         this.state = {
+<<<<<<< HEAD
             modalVisible: true,
             modalQuestion: '',
             modalAnswers: [],
@@ -36,11 +36,26 @@ class Constructor extends Component {
     }
 
     openModal() {
+=======
+            modalVisible: false,
+            selectedQuestion: {}
+        };
+
+        this.selectedQuestion = {};
+        this.closeModal = this.closeModal.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.savePool = this.savePool.bind(this);
+    }
+
+    openModal(index) {
+        this.setState({ selectedQuestion: this.props.fieldList[index] });
+>>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
         this.setState({ modalVisible: true });
     }
 
     closeModal() {
         this.setState({ modalVisible: false });
+<<<<<<< HEAD
     }
 
     handleModalAddButtonClick() {
@@ -67,6 +82,17 @@ class Constructor extends Component {
 
     render() {
         console.log(this.props);
+=======
+        this.setState({ selectedQuestion: {} });
+    }
+
+    savePool() {
+        this.splitInfo = this.child.getSplitInfo();
+        console.log(this.splitInfo);
+    }
+
+    render() {
+>>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
         return (
             <div className={cnConstructor()}>
                 <div className={cnConstructor('Head')}>
@@ -77,10 +103,18 @@ class Constructor extends Component {
                 </div>
                 <Links className={cnConstructor('Links')}>
                     <Link href="#" theme="islands" text="Конструктор" disabled={true} />
+<<<<<<< HEAD
                     <Link url={'/result/'+this.props.match.id} theme="islands" text="Ответы" />
                     <Link href="#" theme="islands" text="Что-то еще" />
                     <div className={cnConstructor('Action')}>
                         <Button size="m"
+=======
+                    <Link href="#" theme="islands" text="Ответы" />
+                    <Link href="#" theme="islands" text="Что-то еще" />
+                    <div className={cnConstructor('Action')}>
+                        <Button
+                            size="m"
+>>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
                             theme="raised"
                             view="default"
                             tone="default"
@@ -91,7 +125,12 @@ class Constructor extends Component {
                             }}
                             text="Предпросмотр"
                         />
+<<<<<<< HEAD
                         <Button size="m"
+=======
+                        <Button
+                            size="m"
+>>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
                             theme="raised"
                             view="default"
                             tone="default"
@@ -105,6 +144,7 @@ class Constructor extends Component {
                 </Links>
                 <div className={cnConstructor('Body')}>
                     <ToolbarContainer className={cnConstructor('Toolbar')} />
+<<<<<<< HEAD
                     <CanvasContainer className={cnConstructor('Canvas')} />
                 </div>
                 <Modal
@@ -136,6 +176,22 @@ class Constructor extends Component {
                         </div>
                     </div>
                 </Modal>
+=======
+                    <div className={cnConstructor('CanvasArea')}>
+                        <CanvasContainer className={cnConstructor('Canvas')} type="question" openModal={this.openModal} />
+                        <CanvasContainer
+                            className={cnConstructor('Canvas', null, 'Canvas-Last')}
+                            type="split"
+                            onRef={ref => this.child = ref} />
+                        <Button theme="action" size="m" text="Сохранить" onClick={this.savePool} />
+                    </div>
+                </div>
+                <QuestionModalContainer
+                    modalVisible={this.state.modalVisible}
+                    closeModal={this.closeModal}
+                    selectedQuestion={this.state.selectedQuestion}
+                />
+>>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
             </div>
         );
     }
