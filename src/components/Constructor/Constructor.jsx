@@ -29,6 +29,7 @@ class Constructor extends Component {
         this.selectedQuestion = {};
         this.closeModal = this.closeModal.bind(this);
         this.openModal = this.openModal.bind(this);
+        this.savePool = this.savePool.bind(this);
     }
 
     openModal(index) {
@@ -39,6 +40,11 @@ class Constructor extends Component {
     closeModal() {
         this.setState({ modalVisible: false });
         this.setState({ selectedQuestion: {} });
+    }
+
+    savePool() {
+        this.splitInfo = this.child.getSplitInfo();
+        console.log(this.splitInfo);
     }
 
     render() {
@@ -84,7 +90,11 @@ class Constructor extends Component {
                     <ToolbarContainer className={cnConstructor('Toolbar')} />
                     <div className={cnConstructor('CanvasArea')}>
                         <CanvasContainer className={cnConstructor('Canvas')} type="question" openModal={this.openModal} />
-                        <CanvasContainer className={cnConstructor('Canvas', null, 'Canvas-Last')} type="split" />
+                        <CanvasContainer
+                            className={cnConstructor('Canvas', null, 'Canvas-Last')}
+                            type="split"
+                            onRef={ref => this.child = ref} />
+                        <Button theme="action" size="m" text="Сохранить" onClick={this.savePool} />
                     </div>
                 </div>
                 <QuestionModalContainer
