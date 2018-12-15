@@ -35,6 +35,12 @@ class CanvasComponent extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    componentDidMount() {
+        if (this.props.onRef) {
+            this.props.onRef(this);
+        }
+    }
+
     deleteHandler(index) {
         this.props.deleteFieldList(index);
     }
@@ -69,6 +75,10 @@ class CanvasComponent extends Component {
 
     handleClick(index) {
         this.props.openModal(index);
+    }
+
+    getSplitInfo() {
+        return this.state;
     }
 
     render() {
