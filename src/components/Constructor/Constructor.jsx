@@ -22,21 +22,6 @@ class Constructor extends Component {
     constructor(props) {
         super(props);
         this.state = {
-<<<<<<< HEAD
-            modalVisible: true,
-            modalQuestion: '',
-            modalAnswers: [],
-        };
-
-        this.handleModalAddButtonClick = this.handleModalAddButtonClick.bind(this);
-        this.handleModalChangeQuestion = this.handleModalChangeQuestion.bind(this);
-        this.handleModalChangeAnswer = this.handleModalChangeAnswer.bind(this);
-        this.handleModalDeleteAnswer = this.handleModalDeleteAnswer.bind(this);
-        this.closeModal = this.closeModal.bind(this);
-    }
-
-    openModal() {
-=======
             modalVisible: false,
             selectedQuestion: {}
         };
@@ -49,40 +34,11 @@ class Constructor extends Component {
 
     openModal(index) {
         this.setState({ selectedQuestion: this.props.fieldList[index] });
->>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
         this.setState({ modalVisible: true });
     }
 
     closeModal() {
         this.setState({ modalVisible: false });
-<<<<<<< HEAD
-    }
-
-    handleModalAddButtonClick() {
-        let prevAnswers = [...this.state.modalAnswers];
-        prevAnswers.push(`Вариант ${prevAnswers.length + 1}`);
-        this.setState({ modalAnswers: prevAnswers });
-    }
-
-    handleModalChangeQuestion(e) {
-        this.setState({ modalQuestion: e });
-    }
-
-    handleModalDeleteAnswer(index) {
-        let prevAnswers = [...this.state.modalAnswers];
-        prevAnswers.splice(index, 1);
-        this.setState({ modalAnswers: prevAnswers });
-    }
-
-    handleModalChangeAnswer(e, index) {
-        let prevAnswers = [...this.state.modalAnswers];
-        prevAnswers[index] = e;
-        this.setState({ modalAnswers: prevAnswers });
-    }
-
-    render() {
-        console.log(this.props);
-=======
         this.setState({ selectedQuestion: {} });
     }
 
@@ -92,7 +48,6 @@ class Constructor extends Component {
     }
 
     render() {
->>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
         return (
             <div className={cnConstructor()}>
                 <div className={cnConstructor('Head')}>
@@ -103,18 +58,11 @@ class Constructor extends Component {
                 </div>
                 <Links className={cnConstructor('Links')}>
                     <Link href="#" theme="islands" text="Конструктор" disabled={true} />
-<<<<<<< HEAD
-                    <Link url={'/result/'+this.props.match.id} theme="islands" text="Ответы" />
-                    <Link href="#" theme="islands" text="Что-то еще" />
-                    <div className={cnConstructor('Action')}>
-                        <Button size="m"
-=======
                     <Link href="#" theme="islands" text="Ответы" />
                     <Link href="#" theme="islands" text="Что-то еще" />
                     <div className={cnConstructor('Action')}>
                         <Button
                             size="m"
->>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
                             theme="raised"
                             view="default"
                             tone="default"
@@ -125,12 +73,8 @@ class Constructor extends Component {
                             }}
                             text="Предпросмотр"
                         />
-<<<<<<< HEAD
-                        <Button size="m"
-=======
                         <Button
                             size="m"
->>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
                             theme="raised"
                             view="default"
                             tone="default"
@@ -144,39 +88,6 @@ class Constructor extends Component {
                 </Links>
                 <div className={cnConstructor('Body')}>
                     <ToolbarContainer className={cnConstructor('Toolbar')} />
-<<<<<<< HEAD
-                    <CanvasContainer className={cnConstructor('Canvas')} />
-                </div>
-                <Modal
-                    cls={cnConstructor('Modal')}
-                    theme="normal"
-                    autoclosable={true}
-                    visible={this.state.modalVisible}
-                    onOutsideClick={() => {
-                        this.setState({ modalVisible: false });
-                    }}
-                >
-                    <div className={cnConstructor('Content')}>
-                        <div className={cnConstructor('Settings')}>
-                            <Editor
-                                type="check"
-                                question={this.state.modalQuestion}
-                                answers={this.state.modalAnswers}
-                                handleChangeQuestion={this.handleModalChangeQuestion}
-                                handleAddButtonClick={this.handleModalAddButtonClick}
-                                handleChangeAnswer={this.handleModalChangeAnswer}
-                                handleDeleteAnswer={this.handleModalDeleteAnswer}
-                            />
-                            <Actions
-                                handleCloseModal={this.closeModal}
-                            />
-                        </div>
-                        <div className={cnConstructor('Preview')}>
-							Preview
-                        </div>
-                    </div>
-                </Modal>
-=======
                     <div className={cnConstructor('CanvasArea')}>
                         <CanvasContainer className={cnConstructor('Canvas')} type="question" openModal={this.openModal} />
                         <CanvasContainer
@@ -191,7 +102,6 @@ class Constructor extends Component {
                     closeModal={this.closeModal}
                     selectedQuestion={this.state.selectedQuestion}
                 />
->>>>>>> e7f8d0357bec8d741685fec5fa3f4915f23f4668
             </div>
         );
     }
