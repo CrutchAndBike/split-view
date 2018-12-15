@@ -3,6 +3,7 @@ import './PollControls.css';
 import { Button, Select, CheckBox, TextInput } from 'lego-on-react';
 import { cn } from '@bem-react/classname';
 import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 const cnPollControls = cn('controls');
 const cnPollControl = cnPollControls('item');
@@ -12,36 +13,43 @@ class PollControls extends Component {
         super(props);
 
         this.state = {
-            field: {}
+            field: {},
+            forms: []
         };
     }
 
     vote() {
-        axios.post('https://kauzlein.ru:3443/api/insert-result',
-            {
-                body: {
+        if(!this.props.checkedOption) {
+            alert('Выберите один из вариантов');
+        }
+        else {
+            axios.post('https://kauzlein.ru:3443/api/insert-result',
+                { 
                     pollId: this.props.pollId,
-                    selectedVariant: 1,
-                    forms: {}
-                },
-                withCredentials: true
-            },  {
-            }).then(res => {
-            if (res.status === 200) {
-                console.log('Вы проголосовали');
-            }
-        });
+                    selectedVariant: this.props.checkedOption,
+                    forms: this.state.forms
+                },  {
+                }).then(res => {
+                if (res.status === 200) {
+                    console.log('Вы проголосовали');
+                }
+            });
+        }
     }
 
-    onChangeHandler(e, index) {
+    onChangeHandler(e, control) {
+        const index = control.text;
         const newField = Object.assign({}, this.state.field);
         newField[index] = e;
+        this.setState({ forms: [...this.state.forms, { type: control.type, text: control.text, value: e }] });
         this.setState({ field: newField });
     }
 
-    onChangeCheckboxHandler(index) {
+    onChangeCheckboxHandler(control) {
+        const index = control.text;
         const newField = Object.assign({}, this.state.field);
         newField[index] = !newField[index];
+        this.setState({ forms: [...this.state.forms, { type: control.type, text: control.text, value: newField[index] }] });
         this.setState({ field: newField });
     }
 
@@ -55,19 +63,19 @@ class PollControls extends Component {
                             return <React.Fragment key={index}>
                                 <label className={cnPollControls('item-label')}>{control.text}</label>
                                 <TextInput cls={cnPollControl} theme="normal" size="m" text={this.state.field[control.text]}
-                                    onChange={(e) => this.onChangeHandler(e, control.text)}/>
+                                    onChange={(e) => this.onChangeHandler(e, control)}/>
                             </React.Fragment>;
                         case 'select':
                             return <React.Fragment key={index}>
                                 <label className={cnPollControls('item-label')}>{control.text}</label>
                                 <Select cls={cnPollControl} theme="normal" size="m" type="radio" 
                                     val={this.state.field[control.text]}
-                                    onChange={(e) => this.onChangeHandler(e, control.text)}
+                                    onChange={(e) => this.onChangeHandler(e, control)}
                                     items={control.options.map((item, i) => { return { val: i, text: item };})} />
                             </React.Fragment>;
                         case 'checkbox':
                             return <CheckBox cls={cnPollControl} theme="normal" size="m" checked={this.state.field[control.text]} text={control.text} 
-                                key={index} onChange={() => this.onChangeCheckboxHandler(control.text)}/>;
+                                key={index} onChange={() => this.onChangeCheckboxHandler(control)}/>;
                         default:
                             return null;
                         }
