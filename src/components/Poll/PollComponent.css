@@ -56,3 +56,7 @@
 .option_active {
     background: #fc0;
 }
+.option audio {
+    width: 80%;
+    padding-top: 20px;
+}

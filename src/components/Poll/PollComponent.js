@@ -17,9 +17,12 @@ class PollComponent extends Component {
                 <Button theme="action" size="l" view="default" tone="default" text={props.options.answer || 'Выбрать'} />
             </React.Fragment>;
         case 'audio':
-            return <div>
-
-            </div>;
+            return <React.Fragment>
+                <audio cls={cnPollElement('audio')} controls="controls" preload='auto'>
+                    <source src={props.options.url}/>
+                </audio>
+                <Button theme="action" cls={cnPollElement('button')} size="l" view="default" tone="default" text={props.options.answer} />
+            </React.Fragment>;
         case 'video':
             return <React.Fragment>
                 <video className={cnPollElement('video')} controls="controls" muted autoPlay>
