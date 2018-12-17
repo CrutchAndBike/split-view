@@ -23,7 +23,11 @@
 .QuestionModal-Preview {
     background-color: #fff;
     flex: 1 1 auto;
-    text-align: center;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
+
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

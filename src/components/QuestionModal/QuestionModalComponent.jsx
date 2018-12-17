@@ -3,6 +3,7 @@ import Actions from '../Actions/Actions';
 import { Modal } from 'lego-on-react';
 import { cn } from '@bem-react/classname';
 import Editor from '../Editor/Editor';
+import QuestionPreview from '../QuestionPreview/QuestionPreview';
 import './QuestionModal.css';
 
 const cnQuestionModal = cn('QuestionModal');
@@ -82,7 +83,11 @@ class QuestionModalComponent extends Component {
                     <Actions closeModal={closeModal} saveQuestion={this.saveQuestion} />
                 </div>
                 <div className={cnQuestionModal('Preview')}>
-                    Preview
+                    <QuestionPreview 
+                        type={selectedQuestion.type}
+                        question={this.state.question}
+                        answers={this.state.answers}
+                    />
                 </div>
             </div>
         </Modal>;

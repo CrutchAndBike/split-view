@@ -77,7 +77,7 @@ class Editor extends Component {
     }
 
     needAnswers() {
-        return !(this.props.type === 'short' || this.props.type === 'long');
+        return (this.props.type === 'select' || this.props.type === 'check' );
     }
 
 }
