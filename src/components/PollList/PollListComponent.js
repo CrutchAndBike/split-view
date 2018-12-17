@@ -111,13 +111,8 @@ class PollListComponent extends Component {
                                                 { item.date }
                                             </div> */}
                                             <div className={cnPollList('List-RowCol', { type: 'controls' })}>
-<<<<<<< HEAD
                                                 <Button theme="normal" size="s" pin="circle-brick" text="Детализация" type="link" url={'/result/'+item._id}/>
                                                 <Button theme="normal" size="s" pin="brick-brick" text="Изменить" type="link" url="/constructor"/>
-=======
-                                                <Button theme="normal" size="s" pin="circle-brick" text="Детализация" type="link" url={"/result/"+item._id}/>
-												<Button theme="normal" size="s" pin="brick-brick" text="Изменить" type="link" url="/constructor"/>
->>>>>>> d940fb3d3e38c5e286b46fb4a90981891b0a81a5
                                                 <Button theme="normal" size="s" pin="brick-circle" text="Удалить" onClick={ () => this.deletePoll(item._id) }/>
                                             </div>
                                         </div>
