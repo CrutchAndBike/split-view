@@ -1,6 +1,12 @@
 language: node_js
 node_js:
-  - "10"
+- '10'
 script:
-  - npm run test
-  - npm run build 
+- npm run test
+- npm run build
+- bash deploy.sh
+before_install:
+- openssl aes-256-cbc -K $encrypted_96d2ef8ea208_key -iv $encrypted_96d2ef8ea208_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+addons:
+  ssh_known_hosts: 217.23.138.53
