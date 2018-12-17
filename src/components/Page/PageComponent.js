@@ -38,9 +38,6 @@ class Page extends Component {
                     <Route exact path='/result/:id' component={ResultComponent}/>
 <<<<<<< HEAD
                     <Route exact path='/constructor' component={ConstructorContainer}/>
-=======
-                    <Route exact path='/constructor' component={Constructor}/>
->>>>>>> d940fb3d3e38c5e286b46fb4a90981891b0a81a5
                     <Route exact path='/list' component={PollListComponent}/>
                 </Switch>
             </div>
