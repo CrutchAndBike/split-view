@@ -1,0 +1,14 @@
+.QuestionPreview-Label {
+    margin-bottom: 5px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.QuestionPreview-Item {
+    
+}
+
+.QuestionPreview-CheckBox {
+    text-align: left;
+    margin-bottom: 5px;
+}
