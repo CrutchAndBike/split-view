@@ -44,7 +44,6 @@ class Constructor extends Component {
 
     savePool() {
         this.splitInfo = this.child.getSplitInfo();
-        console.log(this.splitInfo);
     }
 
     render() {
