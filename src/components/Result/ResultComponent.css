@@ -1,0 +1,116 @@
+.PollList {
+    width: 80%;
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-top: 95px;
+    margin-bottom: 20px;
+}
+
+.PollList-Head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PollList-Chart {
+    width: 70%;
+    padding: 10px 0; 
+}
+
+.PollList-Details {
+    width: 30%;
+}
+
+.PollList-Submenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 32px 25px 24px 40px;
+}
+
+.PollList-Filter {
+    font-size: 18px;
+}
+
+.PollList-List {
+    box-sizing: border-box;
+    padding: 8px 28px 20px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+}
+
+.PollList-AddButton  .icon {
+    transform: rotate(45deg);
+}
+
+.PollList-List-Row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    font-size: 15px;
+    min-height: 63px;
+}
+
+.PollList-List-Header {
+    min-height: 46px;
+    height: 46px;
+    border-bottom: 1px solid #c8c8c8;
+}
+
+.PollList-List-Row:not(.PollList-List-Header):hover {
+    background: #eeeeee;
+    cursor: pointer;
+}
+
+.PollList-List-RowCol {
+    padding: 0 12px;
+    box-sizing: border-box;
+    -ms-flex: 1 1 100px;
+    flex: 1 1 100px;
+}
+
+.PollList-List-Header .PollList-List-RowCol {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.PollList-List-Header .PollList-List-RowCol .icon {
+    margin-left: 10px;
+}
+
+.PollList-List-RowCol_type_name {
+    flex-grow: 1;
+    padding-right: 20px;
+}
+
+.PollList-Сard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 384px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+    font-size: 18px;
+    line-height: 1.44;
+}
+
+.PollList-Сard-Message {
+    width: 394px;
+    margin-left: 110px;
+}
+
+.PollList-Сard-Title {
+    width: 394px;
+}
+
+.PollList-Сard-Image {
+    background-image: url(./card-image.svg);
+    background-repeat: no-repeat;
+    margin-top: 80px;
+    width: 394px;
+    height: 300px;
+}

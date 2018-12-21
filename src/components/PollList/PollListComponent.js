@@ -70,10 +70,10 @@ class PollListComponent extends Component {
             <div className={cnPollList()}>
                 <div className={cnPollList('Submenu')}>
                     <Links className={cnPollList('Filter')}>
-                        <Link disabled={this.state.activeFilter === 'all'} cls={cnPollList('Link')} text="Все" onClick={ () => this.changeFilter('Все') } />
-                        <Link disabled={this.state.activeFilter === 'active'} cls={cnPollList('Link')} text="Активные" onClick={ () => this.changeFilter('active') } />
-                        <Link disabled={this.state.activeFilter === 'wait'} cls={cnPollList('Link')} text="Ожидающие" onClick={ () => this.changeFilter('wait') } />
-                        <Link disabled={this.state.activeFilter === 'closed'} cls={cnPollList('Link')} text="Завершённые" onClick={ () => this.changeFilter('closed') } />
+                        <Link theme="islands" disabled={this.state.activeFilter === 'all'} cls={cnPollList('Link')} text="Все" onClick={ () => this.changeFilter('Все') } />
+                        <Link theme="islands" disabled={this.state.activeFilter === 'active'} cls={cnPollList('Link')} text="Активные" onClick={ () => this.changeFilter('active') } />
+                        <Link theme="islands" disabled={this.state.activeFilter === 'wait'} cls={cnPollList('Link')} text="Ожидающие" onClick={ () => this.changeFilter('wait') } />
+                        <Link theme="islands" disabled={this.state.activeFilter === 'closed'} cls={cnPollList('Link')} text="Завершённые" onClick={ () => this.changeFilter('closed') } />
                     </Links>
                     <Button cls={cnPollList('AddButton')} theme="action" size="m" view="default" tone="default" type="link" text="Добавить опрос" url="/constructor" />
                 </div>
@@ -89,10 +89,10 @@ class PollListComponent extends Component {
 									Статус
                                     <Icon size="xs" glyph="carets-v"/>
                                 </div>
-                                <div className={cnPollList('List-RowCol')}>
+                                {/* <div className={cnPollList('List-RowCol')}>
 									Изменения
                                     <Icon size="xs" glyph="carets-v"/>
-                                </div>
+                                </div> */}
                                 <div className={cnPollList('List-RowCol')}>
 									Управление
                                 </div>
@@ -107,11 +107,12 @@ class PollListComponent extends Component {
                                             <div className={cnPollList('List-RowCol', { type: 'status' })}>
                                                 { statuses[item.status] }
                                             </div>
-                                            <div className={cnPollList('List-RowCol', { type: 'date' })}>
+                                            {/* <div className={cnPollList('List-RowCol', { type: 'date' })}>
                                                 { item.date }
-                                            </div>
+                                            </div> */}
                                             <div className={cnPollList('List-RowCol', { type: 'controls' })}>
-                                                <Button theme="normal" size="s" pin="circle-brick" text="Изменить" type="link" url="/constructor"/>
+                                                <Button theme="normal" size="s" pin="circle-brick" text="Детализация" type="link" url={'/result/'+item._id}/>
+                                                <Button theme="normal" size="s" pin="brick-brick" text="Изменить" type="link" url="/constructor"/>
                                                 <Button theme="normal" size="s" pin="brick-circle" text="Удалить" onClick={ () => this.deletePoll(item._id) }/>
                                             </div>
                                         </div>

@@ -1,10 +1,35 @@
+.polls-body {
+    margin-bottom: 20px;
+}
+
 .polls {
     display: block;
-    margin: 30px;
-    padding-top: 20px;
+    margin: 20px;
+    height: 90%;
 }
 
 .polls-container {
     display: flex;
     justify-content: space-evenly;
+}
+
+.polls-header {
+    padding-top: 5px; 
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.polls-form {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1440px;
+    padding: 8px 28px 20px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+}
+
+.polls-form-header {
+    text-align: center;
 }

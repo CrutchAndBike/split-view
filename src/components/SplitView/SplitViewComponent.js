@@ -7,22 +7,45 @@ import { cn } from '@bem-react/classname';
 const cnPollContainer = cn('polls');
 
 class SplitViewComponent extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            checked: false,
+            checkedOption: 0
+        };
+    }
+
+    optionClick(index) {
+        if(this.state.checkedOption !== index) {
+            this.setState({ checkedOption : index });
+        }
+    }
+
     render() {
         const { isFinished, setup, header } = this.props;
-        return <div>
-            {!isFinished && <div className={cnPollContainer()}>
-                <div className={cnPollContainer('controls')}>
-                    <PollControls setup={setup}/>
+        return <div className='polls-body'>
+            {!isFinished && <React.Fragment>
+                <div className={cnPollContainer()}>
+                    <h1 className={cnPollContainer('header')}>{header}</h1>
+                    <div className={cnPollContainer('container')}>
+                        {
+                            this.props.answers.map((option, index) =>
+                                <PollContainer key={index+1} className={cnPollContainer('option')} index={index+1} 
+                                    options={option} onClick={() => this.optionClick(index+1)}
+                                    checkedOption={this.state.checkedOption}/>
+                            )
+                        }
+                    </div>
                 </div>
-                <h1 className={cnPollContainer('header')}>{header}</h1>
-                <div className={cnPollContainer('container')}>
-                    {
-                        this.props.answers.map((option, index) =>
-                            <PollContainer key={index} className={cnPollContainer('option')} options={option} />
-                        )
-                    }
+                <div className={cnPollContainer('form')}>
+                    {this.props.hasForm && <h3 className={cnPollContainer('form-header')}>{this.props.formHeader || 'Расскажите о себе' }</h3>}
+                    <div className={cnPollContainer('controls')}>
+                        <PollControls setup={setup} hasForm={this.props.hasForm} pollId={this.props.pollId}
+                            checkedOption={this.state.checkedOption}/>
+                    </div>
                 </div>
-            </div>}
+            </React.Fragment>}
             {isFinished && <span>Finished</span>}
         </div>;
     }

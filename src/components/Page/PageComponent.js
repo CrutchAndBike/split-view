@@ -5,6 +5,7 @@ import NavComponent from '../Navigation/NavComponent';
 import ContentComponent from '../Content/ContentComponent';
 import ConstructorContainer from '../Constructor/ConstructorContainer';
 import PollListComponent from '../PollList/PollListComponent';
+import ResultComponent from '../Result/ResultComponent';
 import './PageComponent.css';
 import { cn } from '@bem-react/classname';
 
@@ -34,6 +35,7 @@ class Page extends Component {
                 </Header>
                 <Switch>
                     <Route exact path='/poll/:id' component={ContentComponent}/>
+                    <Route exact path='/result/:id' component={ResultComponent}/>
                     <Route exact path='/constructor' component={ConstructorContainer}/>
                     <Route exact path='/list' component={PollListComponent}/>
                 </Switch>
