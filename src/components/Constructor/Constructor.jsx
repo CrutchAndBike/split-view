@@ -38,14 +38,12 @@ class Constructor extends Component {
     }
 
     closeModal() {
-        console.log('Close');
         this.setState({ modalVisible: false });
         this.setState({ selectedQuestion: {} });
     }
 
     savePool() {
         this.splitInfo = this.child.getSplitInfo();
-        console.log(this.splitInfo);
     }
 
     render() {
