@@ -38,6 +38,7 @@ class Constructor extends Component {
     }
 
     closeModal() {
+        console.log('Close');
         this.setState({ modalVisible: false });
         this.setState({ selectedQuestion: {} });
     }

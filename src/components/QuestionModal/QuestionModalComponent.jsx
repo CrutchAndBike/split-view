@@ -80,7 +80,7 @@ class QuestionModalComponent extends Component {
                         handleChangeAnswer={this.handleModalChangeAnswer}
                         handleDeleteAnswer={this.handleModalDeleteAnswer}
                     />
-                    <Actions closeModal={closeModal} saveQuestion={this.saveQuestion} />
+                    <Actions handleCloseModal={closeModal} handleSave={this.saveQuestion} />
                 </div>
                 <div className={cnQuestionModal('Preview')}>
                     <QuestionPreview 
